@@ -1,4 +1,0 @@
-# C functions?
-
-Let s
-

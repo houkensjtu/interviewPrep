@@ -1,14 +1,6 @@
-# interviewPrep
+# Content
 
-## Fundamental
-
-* [C/C++](fundamental/c-c++/)
-* [Java](fundamental/java.md)
-* [Python](fundamental/python.md)
-
-## Data structures
-
-## Algorithms
+> Freedom means the opportunity to be what we never thought we would be. - Daniel J. Boorstin
 
 ## 参考资源
 
