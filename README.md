@@ -2,9 +2,9 @@
 
 ## Fundamental
 
-* [C/C++](c-c++.md)
-* [Java](java.md)
-* [Python](python.md)
+* [C/C++](fundamental/c-c++.md)
+* [Java](fundamental/java.md)
+* [Python](fundamental/python.md)
 
 ## Data structures
 

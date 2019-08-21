@@ -1,7 +1,12 @@
 # Table of contents
 
 * [interviewPrep](README.md)
-* [C/C++](c-c++.md)
-* [Java](java.md)
-* [Python](python.md)
+* [C/C++](fundamental/c-c++.md)
+
+## Fundamental
+
+* [C/C++](fundamental/c-c++.md)
+* [Java](fundamental/java.md)
+* [Python](fundamental/python.md)
+* [Untitled](fundamental/untitled.md)
 
