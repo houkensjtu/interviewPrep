@@ -1,6 +1,6 @@
 # Table of contents
 
-* [interviewPrep 面经](README.md)
+* [interviewPrep](README.md)
 * [C/C++](c-c++.md)
 * [Java](java.md)
 * [Python](python.md)
