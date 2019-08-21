@@ -2,7 +2,7 @@
 
 ## Fundamental
 
-* [C/C++](fundamental/c-c++.md)
+* [C/C++](fundamental/c-c++/)
 * [Java](fundamental/java.md)
 * [Python](fundamental/python.md)
 

@@ -20,4 +20,7 @@ $$
 * C is a simple language
 * No its not.
 * ~~See this sentence is striked out...~~
+*  ~~~~[~~C functions?~~](c-functions.md)~~~~
+
+{% page-ref page="c-functions.md" %}
 
