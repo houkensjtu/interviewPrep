@@ -117,7 +117,7 @@ ndigit[] = {0,1,2,3,4,5,6,7,8,9};
 ndigit[10] = {0,1,2,3,4,5,6,7,8,9};
 ```
 
-数组声明的方法就是在变量名后面加上方括号和数组的大小，数组的index在C中是从0开始的。数组赋值的方法，除了逐一赋值，也可以用给定数组的方法赋值，**注意到数组常量的表示法是用花括号而不是方括号**！
+数组声明的方法就是在变量名后面加上方括号和数组的大小，数组的index在C中是从0开始的。数组赋值的方法，除了逐一赋值，也可以用给定数组的方法赋值，**注意到数组常量的表示法是用花括号而不是方括号。**
 
 #### 简单函数声明
 
@@ -199,6 +199,57 @@ enum months {JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC};
 ```c
 int func(const char c[]);
 ```
+
+#### 型转换
+
+型转换有两种，显示\(也叫cast\)，或者隐式。
+
+隐式的型转换发生在两种数据类型出现在同一个表达式中时，往往C的规则是把数据统一向更大的数据类型，比如，浮点数和整形在一起的表达式，C倾向于把整形变成浮点数。
+
+**显示的转换也叫cast**，用来表示用户有意图地要转换变量类型。比如double sqrt\(double n\)这个函数，说了传递参数必须是一个double类型，于是我们可以这样做
+
+```c
+int i = 2;
+return sqrt((double) i); // 强制cast了i这个变量
+```
+
+#### 位操作运算
+
+```c
+& // bitwise AND
+| // bitwise OR
+^ // bitwise XOR
+~ // bitwise NOT ( 0011-> 1100)
+<< // left shift
+>> // right shift
+
+/* These operators are not bitwise */
+&& // logic AND
+|| // logic OR
+```
+
+在位操作中用一个flag变量来和对象做AND运算以实现mask一些位是常用技巧。
+
+```c
+int SET_ON = 0x0011;
+int n = n & SET_ON;
+```
+
+#### 条件表达式
+
+```c
+// expr1 ? expr2 : expr3
+int z = (a>b)? a : b;
+
+//相当于下面的代码
+int z;
+if (a>b)
+  z = a;
+else 
+  z = b;
+```
+
+### 条件控制语句
 
 
 
