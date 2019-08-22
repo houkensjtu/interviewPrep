@@ -8,18 +8,47 @@ C语言是为了帮助Unix开发而发明的语言。C语言相比它的前身B�
 
 C语言是跨平台的，可以在多种电脑架构上运行。C语言并不是非常强的型语言\(not a strongly-typed language\)，但是在C标准的发展过程中，对于型转换的规定越来越严格，比如早期指针和整数的转换是自由的，但是现在需要明确的声明才可以进行。
 
-
-
 ### 基本程序结构
 
+每个C程序都需要有一个main函数，printf这个函数来自于stdio.h头文件，所以需要在程序开始的时候导入。一个小细节，K&R书中的风格是把花括号自成一行编写的~~，这样比较有逼格~~。另外，缩进并没有严格的规定，这里采用2格使得文面更加整洁紧凑。
+
 ```c
-// 文件命名为xxx.c;编译时用gcc xxx.c生成a.out
 #include <stdio.h>
 
-int main(int argc, char* argv[]){
+int main()
+{
   printf("Hello world!\n");
 }
 ```
+
+第二个程序是打印一个摄氏温度与华氏温度的转换表，需要用到基本的变量声明语句，基本的循环体和格式打印语句。
+
+```c
+#include <stdio.h>
+
+int main()
+{
+  float celsius, fahr;
+  int upper, lower, step;
+  lower = 0;
+  upper = 300;
+  step  = 10;
+  
+  fahr = lower;
+  while(fahr <= upper) {
+    celsius = (5.0/9.0)*(fahr-32.0);
+    printf("%3.0f\t%6.1f\n",fahr,celsius)
+    fahr += step;
+  }
+}
+```
+
+这里我们再次观察到几个细节：
+
+* 同类型变量声明可以放在同一行，用逗号隔开
+* fahr = lower这个语句事实上发生了浮点数与整数的自动转换，C语言会负责自动将lower转成浮点数然后代入fahr
+* printf中的%是一个占位符，用来吸收逗号后面的变量；%f是浮点数，%d是整数
+* while循环体后面的花括号是不换行的，这和主函数的声明不一样
 
 ### 变量声明
 
