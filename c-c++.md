@@ -121,7 +121,7 @@ ndigit[10] = {0,1,2,3,4,5,6,7,8,9};
 
 #### 简单函数声明
 
-函数和变量一样，在使用前不仅要定义还需要声明。
+函数的**调用如果在定义之前**，那么是需要像下面这样先声明，不然的话目前的gcc会报warning，不过可以运行。**调用如果在定义之后**，那么事实上是不需要再次另外声明的。另外一个基本概念是，**C中的函数都是传值的**，也就是说给函数的参数都是一个拷贝，而不是对原对象的直接操作。（当然直接操作可以通过指针实现，这是后话）
 
 ```c
 #include <stdio.h>
@@ -129,9 +129,9 @@ ndigit[10] = {0,1,2,3,4,5,6,7,8,9};
 // 函数需要事先声明
 int power(int m, int n);
 // 声明的时候可以只给出参数的类型，不需要赋予名字
-int power(int, int)
+int power(int, int);
 
-main()
+int main()
 {
   int i = 0;
   for (i=0; i<10; i++)
@@ -150,5 +150,55 @@ int power(int base, int n)
 
 ```
 
-### 变量声明
+#### extern关键词
+
+extern表示的是外部变量。在C中可以在函数体之外声明一些公共的变量，在函数体内调用这些公共变量之前，需要先声明extern。所以，**看到extern就知道表明，这是一个共有的变量**。
+
+```c
+int m,n;
+int main()
+{
+  extern int m,n;
+  ...
+}
+
+int func()
+{
+  extern int m,n;
+}
+```
+
+### 基础变量类型
+
+C语言中的变量类型并不多：
+
+```c
+int i; // int还有long int, short int等变化，可以加signed或者unsigned修饰符
+char c; // unsigned char表示0-255的整数值，sign则是-128-127
+float f;
+double d;
+```
+
+C中并没有字符串这个类型，所谓string就是字符的数组char\[ \]。**注意在C当中，双引号和单引号是不同的，单引号是字符**。
+
+```c
+char c[5] = "Hello";
+```
+
+另外提一下enum枚举常量
+
+```c
+// enum会自动赋予值，第一个为0，第二个为1，以此类推
+// 自动赋值是用enum的一大便利之处
+enum boolean {NO, YES};
+enum months {JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC};
+```
+
+最后是const修饰符，如果变量用const修饰，就说明不能修改。一个重要应用是在传给函数数组时添加const，防止函数修改数组
+
+```c
+int func(const char c[]);
+```
+
+
 
