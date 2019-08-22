@@ -2,6 +2,10 @@
 
 > Freedom means the opportunity to be what we never thought we would be. - Daniel J. Boorstin
 
+本书将系统整理我从2019.8开始学习算法和面试的历程，目前大致准备包括的内容有，编程语言基础，算法课程笔记，算法分类整理，以及练习题汇总。
+
+本书在Github托管，在[Gitbook](https://personal-notes.gitbook.io/interviewprep/)上观看效果更好。
+
 ## 参考资源
 
 * [Coding interview univ.](https://github.com/jwasham/coding-interview-university)
