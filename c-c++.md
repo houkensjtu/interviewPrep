@@ -115,6 +115,9 @@ for (i=0; i<10; i++){
 // 作为数组赋值
 ndigit[] = {0,1,2,3,4,5,6,7,8,9};
 ndigit[10] = {0,1,2,3,4,5,6,7,8,9};
+
+// 奇技淫巧: 生成一个10个元素的数组，最后一个是10，其他默认都是0
+ndigit[] = {[9] = 10};
 ```
 
 数组声明的方法就是在变量名后面加上方括号和数组的大小，数组的index在C中是从0开始的。数组赋值的方法，除了逐一赋值，也可以用给定数组的方法赋值，**注意到数组常量的表示法是用花括号而不是方括号。**
@@ -185,13 +188,29 @@ C中并没有字符串这个类型，所谓string就是字符的数组char\[ \]�
 char c[5] = "Hello";
 ```
 
-另外提一下enum枚举常量
+另外提一下enum枚举常量。enum在声明过后，就像一个新的类型一样，不同之处是，enum只能容纳在声明时初始化列表中的那些值，而且这些值如果没有特别声明，就是从0开始的一串整数。
 
 ```c
 // enum会自动赋予值，第一个为0，第二个为1，以此类推
 // 自动赋值是用enum的一大便利之处
 enum boolean {NO, YES};
 enum months {JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC};
+```
+
+```c
+#include <stdio.h>
+
+int main()
+{
+  enum suit {club, diamond, heart, spade};
+  
+  // enum 配合tag名字，就好像是一个新的类型。其取值就是只能是上面声明时的这些中的一个
+  enum suit card;
+  card = heart;
+  
+  printf("Heart is the %d th suit.\n", card);
+  // => Heart is the 2 th suit.
+}
 ```
 
 最后是const修饰符，如果变量用const修饰，就说明不能修改。一个重要应用是在传给函数数组时添加const，防止函数修改数组
@@ -204,7 +223,7 @@ int func(const char c[]);
 
 型转换有两种，显示\(也叫cast\)，或者隐式。
 
-隐式的型转换发生在两种数据类型出现在同一个表达式中时，往往C的规则是把数据统一向更大的数据类型，比如，浮点数和整形在一起的表达式，C倾向于把整形变成浮点数。
+**隐式的型转换发生在两种数据类型出现在同一个表达式中时**，往往C的规则是把数据统一向更大的数据类型，比如，浮点数和整形在一起的表达式，C倾向于把整形变成浮点数。
 
 **显示的转换也叫cast**，用来表示用户有意图地要转换变量类型。比如double sqrt\(double n\)这个函数，说了传递参数必须是一个double类型，于是我们可以这样做
 
@@ -250,6 +269,100 @@ else
 ```
 
 ### 条件控制语句
+
+C语言中的条件控制大多数都是遵循比较旧的代码风格：条件本身用小括号表示，处理部分用花括号括起。下面结合K&R中的实例解释几种条件语句。
+
+#### if-else语句
+
+这里对于if-else的功能本身不再作赘述，只是K&R中给出了一个binary search的例子非常优美因此在此借用：
+
+```c
+// 我在看之前自己考虑的版本，假设给定的数组已经sort好了
+#include <stdio.h>
+
+int binary_search(int num[], int len, int target)
+{
+  int lower = 0;
+  int upper = len-1;
+  int current = 0;
+  while (upper > lower + 1) { // 当upper和lower中间已经没有数字时
+    current = (upper + lower) / 2;
+    if (num[current] > target) 
+      upper = current;
+    else if (num[current] < target) 
+      lower = current;
+    else if (num[current] == target) 
+      return num[current];
+  }
+  return -1;
+}
+
+int main()
+{
+  int num[] = {1,3,5,7,9,11,13,15};
+  int len = 8;
+  printf("4 is the %d th element of the list.\n", binary_search(num[],len,4));
+}
+```
+
+```c
+// 以下K&R的版本
+int binarysearch(int x, int v[], int n)
+{
+  int low, high, mid;
+  
+  low = 0;
+  high = n - 1;
+  while (low <= high) {
+    mid = (low+high) / 2;
+    if (x < v[mid]) 
+      high = mid -1;
+    else if (x > v[mid])
+      low = mid + 1;
+    else 
+      return mid;
+  }
+  return -1;
+}
+```
+
+#### switch语句
+
+这里用一个统计输入中字符类型的片段来作为例子：
+
+```c
+while ((c = getchar()) != EOF) {
+  switch (c){
+    case '0': case '1': case '2': case '3': case '4': case '5': 
+    case '6': case '7': case '8': case '9': 
+      ndigit[c-'0']++;
+      break;
+    case '\t':
+      nwhite++;
+      break;
+    case '\n':
+      nline++;
+      break;
+    default:
+      nother++;
+      break;
+  }
+}
+```
+
+break的作用是立即退出switch，因为这里如果一个条件满足了就没有必要再执行switch中剩下的部分。break也可以用来退出while,for等其他循环体。
+
+#### 循环体：while / for
+
+for和while循环体的写法是非常直观易于理解的，这里不再赘述。在使用上，for适用于有计数，需要初始化等细节控制的循环，而while则适合于对于循环次数没有具体控制的情况。这里K&R引用一个叫做Shell sort的排序算法来演示for循环：
+
+```c
+// Shell sort!
+void shell_sort(int num[], int n)
+{
+
+}
+```
 
 
 
