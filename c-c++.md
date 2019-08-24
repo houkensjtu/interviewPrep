@@ -120,7 +120,7 @@ ndigit[10] = {0,1,2,3,4,5,6,7,8,9};
 ndigit[] = {[9] = 10};
 ```
 
-数组声明的方法就是在变量名后面加上方括号和数组的大小，数组的index在C中是从0开始的。数组赋值的方法，除了逐一赋值，也可以用给定数组的方法赋值，**注意到数组常量的表示法是用花括号而不是方括号。**
+数组声明的方法就是在变量名后面加上方括号和数组的大小，数组的index在C中是从0开始的。数组赋值的方法，除了逐一赋值，也可以用给定数组的方法赋值，**注意到数组常量的表示法是用花括号而不是方括号。**这里的原因有很多，首先需要认识到的是，**C语言中并没有数组字面值这个东西，数组的变量是一个指针，如果说数组要赋值，那也只能赋值一个指针**。所以这里的花括号表示的并不是数组本身，而是一个初始化写法。
 
 #### 简单函数声明
 
@@ -332,7 +332,7 @@ int binarysearch(int x, int v[], int n)
 
 ```c
 while ((c = getchar()) != EOF) {
-  switch (c){
+  switch (c) {
     case '0': case '1': case '2': case '3': case '4': case '5': 
     case '6': case '7': case '8': case '9': 
       ndigit[c-'0']++;
@@ -358,11 +358,34 @@ for和while循环体的写法是非常直观易于理解的，这里不再赘述
 
 ```c
 // Shell sort!
-void shell_sort(int num[], int n)
+void shell_sort(int v[], int n)
 {
-
+  int gap, i, j, temp;
+  
+  for (gap = n/2; gap>0; gap /= 2) {
+    for (i = gap; i < n; i++) {
+      for (j = i-gap; j>=0 && v[j]>v[j+gap]; j-=gap) {
+        temp = v[j];
+        v[j] = v[j+gap];
+        v[j+gap] = temp;
+      }
+    }
+  }
 }
 ```
 
+最后，书中介绍了一个可以在for循环体中运行两个条件语句的逗号方法
 
+```c
+void reverse(char s[])
+{
+  int i, j;
+  char temp;
+  for (i=0, j=strlen(s)-1; i<j; i++, j--){
+    s[i] = temp;
+    s[i] = s[j];
+    s[j] = temp;
+  }
+}
+```
 
