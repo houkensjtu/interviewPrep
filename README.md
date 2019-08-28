@@ -33,11 +33,11 @@
 3. Wednesday: CS15-122（白天可以看一些资料），MIT Python视频
 4. Thursday: CS15-122（白天可以看一些资料），MIT Python视频
 5. Friday: Princeton Java书中练习，Python Crash Course Project
-6. Sat/Sun: CS15-122 + UW Python Intro + 追赶一周中拉下的课程 Or Udemy上购买的兴趣课
+6. Sat/Sun: 优先级：追赶一周中落下的内容&gt;15-112 Python 练习&gt;CSE351&gt;Qt C++&gt;Udemy 其他课程
 
 #### 参考资源
 
-* [CS 15-112](http://www.krivers.net/15112-s19/schedule.html): Prerequisite course for 15-122. Teach basics of Python.
+* [CS 15-112](http://www.cs.cmu.edu/~112/schedule.html): Prerequisite course for 15-122. Teach basics of Python.
 * [CS 15-122](http://www.cs.cmu.edu/~fp/courses/15122-f15/schedule.html): Prerequisite course for CSAPP. Teach C0/C language. \([Lecture Note](https://www.cs.cmu.edu/~15122/schedule.shtml), [Homework](http://www.cs.cmu.edu/~fp/courses/15122-f15/assignments.html), [C0 Language](http://c0.typesafety.net/tutorial/)\)
 * [CSE 351](https://courses.cs.washington.edu/courses/cse351/19su/#home) : Hardware and Software interface, UW version of CSAPP. Easier to follow.
 * [C++ Template Tutorial Video](https://www.youtube.com/playlist?list=PL5jc9xFGsL8G3y3ywuFSvOuNm3GjBwdkb)
