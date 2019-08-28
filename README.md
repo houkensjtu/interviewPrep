@@ -12,7 +12,7 @@
 
 在学习的初期，应该注重语言语法的整理与复习，学习以看课程视频为主，但是同时要配合笔记\(gitbook\)和flashcard\(quizlet\)来保持记忆，方便复习。但是也不能过于轻视动手，应该每天或者隔天动手编写一些短小的程序来确认自己的学习正确性。
 
-关于CSAPP这门绝对想啃下来的课，目前还没有很好的idea。啃了多次都感觉难度很大。目前唯一的idea就是硬看视频，看不懂也坚持把视频刷一遍，这样对整个课程的内容分布有了了解以后，回过头来可能更容易攻略各个内容。
+关于CSAPP这门绝对想啃下来的课，~~目前还没有很好的idea~~。找到了一些CMU公开的先修课程，包括15-122（一门教C语言和数据结构基础的课程）和15-112（更基础的用Python编写一些有趣程序的导论课）。15-213的Lab0中有提到课程对C语言c熟悉程度的要求，特别是从第4章起编写很多程序需要应用到C语言的数据结构。关于前面的数据2进制表示和汇编语言部分就太难的问题，找到了UW的对应课程CSE351 Hardware/Software Interface，这门课的讲解更加浅显，练习的难度也相对较低，适合入门。
 
 #### 一周学习计划
 
@@ -37,6 +37,10 @@
 
 #### 参考资源
 
+* [CS 15-112](http://www.krivers.net/15112-s19/schedule.html): Prerequisite course for 15-122. Teach basics of Python.
+* [CS 15-122](http://www.cs.cmu.edu/~fp/courses/15122-f15/schedule.html): Prerequisite course for CSAPP. Teach C0/C language. \([Lecture Note](https://www.cs.cmu.edu/~15122/schedule.shtml), [Homework](http://www.cs.cmu.edu/~fp/courses/15122-f15/assignments.html), [C0 Language](http://c0.typesafety.net/tutorial/)\)
+* [CSE 351](https://courses.cs.washington.edu/courses/cse351/19su/#home) : Hardware and Software interface, UW version of CSAPP. Easier to follow.
+* [C++ Template Tutorial Video](https://www.youtube.com/playlist?list=PL5jc9xFGsL8G3y3ywuFSvOuNm3GjBwdkb)
 * [Coding interview univ.](https://github.com/jwasham/coding-interview-university)
 * [Interactive coding challenges](https://github.com/donnemartin/interactive-coding-challenges)
 
