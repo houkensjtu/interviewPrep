@@ -389,3 +389,33 @@ void reverse(char s[])
 }
 ```
 
+#### break和continue
+
+break就是跳出循环体，提前结束循环。而continue是跳过循环的一个步，重新回到循环的头上来。下面这个例子演示了如何跳过一个数组中的负数，而仅对正数做处理。
+
+```c
+for (i=0; i<n; i++){
+  if (s[i]<0)
+    continue;
+  // do sth. to positive elements.
+}
+```
+
+### 函数
+
+传递参数的三种方式，pass by value, pass by reference, pass pointer
+
+```c
+int func(int x){
+... 
+}
+
+int func(int *x){
+... 
+}
+
+int func(int &x){
+... 
+}
+```
+
