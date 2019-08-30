@@ -45,5 +45,30 @@ float(5) # => 5.0
 int(3.0) # => 3
 ```
 
+#### Variables
 
+* binding values and variables is the first level **abstraction.**
+
+```python
+pi = 3.1415
+radius = 2.2
+area = pi * (radius ** 2)
+```
+
+* This abstraction makes reuse of value easier.
+
+#### Operators and branching
+
+* &gt;,&lt;,==,!=, returns True or False.
+* Logic combination : and, or, not.
+
+```python
+x = int(input("Enter a number.")
+if x%2==0 :
+    print("Even.")
+else:
+    print("Odd.")
+```
+
+* These programs **run in constant time,** because each expression run at max 1 time.
 
