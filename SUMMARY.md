@@ -3,7 +3,7 @@
 * [Content](README.md)
 * [C/C++](c-c++.md)
 * [Java](java.md)
-* [Python](python.md)
+* [Python Data Structure](python.md)
 * [CMU CS 15-112](cmu-cs-15-112.md)
 * [CMU CS 15-122](cs-15-122.md)
 * [MIT 6.001x](mit-python.md)
