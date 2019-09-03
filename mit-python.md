@@ -72,3 +72,60 @@ else:
 
 * These programs **run in constant time,** because each expression run at max 1 time.
 
+#### Strings
+
+* int, float, bool, string &lt;- NEW
+
+```python
+hi = "Hello there."
+name = "Brian"
+
+# Concanation
+hi + name
+# Repeat
+name * 3
+# Length
+len(name)
+# Indexing
+name[0]
+# Slicing
+name[0:2]
+```
+
+#### I/O
+
+* print function can take multiple expressions, 但是自动会给加空格
+
+```python
+print("my fav", " num", "is", number)
+print("my fav" + " num" + "is", number)
+```
+
+* 你也可以用加号string，这样就不会有自动空格
+* input function
+
+```python
+text = input("Please enter something") # <= this is a string
+num = int(text)
+```
+
+#### Control flow
+
+* while loop, for loop
+
+```python
+n = 0
+while n<5:
+  print(n)
+  n = n + 1
+# or
+for n in range(5):
+  print(n)
+```
+
+#### Class of algorithms
+
+* Guess and check: exhaustive enumeration
+
+
+
