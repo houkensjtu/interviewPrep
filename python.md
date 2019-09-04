@@ -58,6 +58,46 @@ vectorA * vectorB # => 0
 
 #### Python语言佛脚
 
+* Python中的基础变量类型：int, float, boolean
+* 派生数据类型：list
+
+```python
+>>> myList = [1,2,3,True]
+>>> myList = [0] * 6
+>>> myList + otherList
+```
+
+* range\(\)是一个常用的生成list的工具，range生成的数列包括头而不包括尾
+
+```python
+>>> list(range(0,5))
+[0,1,2,3,4]
+>>> list(range(5,10,2))
+[5,7,9]
+```
+
+* String就是字符的list，很多操作方法都和list类似
+* String和list不同的是，String是不可修改的，一旦赋值，不能再用赋值语句修改其中的字符
+* 另外还有Tuple，也是不可修改版本的list
+* 最后就是dict型，同时包括keys和values，items则表示键值对。
+
+```python
+>>> phonenumb = {'david' : 1410, 'sarah' : 1137}
+>>> phonenumb.keys()
+dict_keys(['david','sarah'])
+```
+
+* I/O : print\(\)和input\(\)这两个基本函数。另外print存在格式输出的方法
+
+```python
+print(aName, "is", age, "years old.")
+print("%s is %d years old." % (aName, age))
+
+# 以下是c语言中的输入输出写法
+printf("Area = %d.\n", area);
+scanf("Enter your r here : %d.\n",&r);
+```
+
 #### OOP数据结构编程实例
 
 
