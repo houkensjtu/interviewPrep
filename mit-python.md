@@ -127,5 +127,59 @@ for n in range(5):
 
 * Guess and check: exhaustive enumeration
 
+### Week 2 Simple programs
 
+* String is immutable, but can be reassigned
+
+```python
+s = 'Hello'
+s[0] = 'S' # => Error
+s = 'World'# => This is ok.
+```
+
+* Loop over String
+
+```python
+s = 'abcdef'
+for char in s:
+    if char == 'i' or char == 'u':
+        print("There is an i or u")
+```
+
+* Approximate solution method : find the square root of any non negative number
+
+```python
+cube = 27
+epsilon = 0.0001
+increment = 0.0001
+result = 0
+
+while abs(result ** 3 - cube) >= epsilon and result <= cube:
+    result += increment
+if abs(result ** 3 - cube) <= epsilon:
+    print("The cubic root of", cube, " is ", result)
+else: 
+    print("Failed to find the root.")
+```
+
+* A more effective method : bisection search. We know the root of x lies between 1 and x, from Math.
+* if guess \*\*2 &gt; x, we know guess is too big; else, is too small.
+
+```python
+x = 18
+epsilon = 0.0001
+upper = x
+lower = 1
+guess = (upper + lower) / 2
+while abs(guess ** 2 - x > epsilon):
+    if guess**2>x:
+        upper = guess
+    else: 
+        lower = guess
+    guess = (upper + lower) / 2
+print("The square root of x is ", guess)
+```
+
+* Float number : In computer, numbers are represented in binary form.
+* A even better algorithm : Newton-Raphson method to find the root
 
