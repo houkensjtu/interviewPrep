@@ -51,6 +51,7 @@
 * [C++ Template Tutorial Video](https://www.youtube.com/playlist?list=PL5jc9xFGsL8G3y3ywuFSvOuNm3GjBwdkb)
 * [Coding interview univ.](https://github.com/jwasham/coding-interview-university)
 * [Interactive coding challenges](https://github.com/donnemartin/interactive-coding-challenges)
+* [CS125](https://cs125.cs.illinois.edu/) : Introduction to computer science \(UIUC\)
 
 #### 参考图书
 
