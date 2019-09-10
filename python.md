@@ -10,7 +10,7 @@ description: Problem Solving with Algorithms and Data Structures using Python
 
 #### 背景
 
-* 什么是CS，什么是编程
+* 什么是计算机科学，什么是编程
 
 计算机科学的任务是研究如何利用计算机来计算并解决问题，而不是研究或者开发计算机本身。解决问题的方法，通常被用系统的方式总结并分析，这样的方法被称为算法。为了开发复杂而高效的算法，计算机科学中最基础的手段就是**抽象**。所谓抽象，指的是把对对象的操作和对对象的实现分离开来，达到降低操作难度的目的。
 
@@ -50,7 +50,7 @@ vectorA * vectorB # => 0
 
 比较上面两种实现方法，前者不仅多了几行，更要命的是**由于不能重复使用**，每次建立新的矢量都需要反复定义反复手动计算，将使得计算程序变得非常冗长。这就是建立新的数据结构的必要性一种体现。
 
-矢量是在物理或者工程中为了表现物理量，解决物理问题所抽象出来的一种数据结构。在计算机科学领域，也有很多具有共性的问题被总结分析研究得非常透彻，这些问题包括**排序，查找，优化**等等。为了解决这些问题，相应的开发出了很多合适的数据结构，比如**链表，队列，堆栈，哈希表**等等。
+矢量是在物理或者工程中为了表现物理量，解决物理问题所抽象出来的一种数据结构。在计算机科学领域，也有很多具有共性的问题被总结分析研究得非常透彻，这些问题大多数可以被归类为**数值计算问题**和**非数值计算问题**。数值计算算法主要研究对象就是矩阵运算，因此不需要过多的抽象数据结构。相对的非数值计算问题，则有必要建立不同的模型来表现问题。这些问题包括**排序，查找，优化**等等。为了解决这些问题，相应的开发出了很多合适的数据结构，比如**链表，队列，堆栈，哈希表**等等。
 
 * 为何要研究算法
 
@@ -98,7 +98,99 @@ printf("Area = %d.\n", area);
 scanf("Enter your r here : %d.\n",&r);
 ```
 
+* 控制结构\(if-else\)语句，循环\(for ... in list\)语句不再赘述。仅提一个生成list时用的技巧list comprehension:
+
+```python
+>>> square = [x*x for x in range(10)]
+>>> sqlist = [x*x for x in range(1,11) if x%2 != 0]
+```
+
+* 例外的处理。在程序运行过程中产生的run-time错误成为例外。在Python中可以事先在代码中准备好对例外的处理：
+
+```python
+>>> try:
+...   print(math.sqrt(-7))
+... except:   # <= 这里并不一定要指定error类型
+...   print("Bad Value for square root")
+>>> Bad Value for square root
+```
+
+* 函数的定义: def语句，不再赘述。
+
 #### OOP数据结构编程实例
 
+至此我们对于数据结构和Python语言都有了概括性的了解，现在是时候结合Python的面向对象语言特征来实例说明一下构建数据结构的过程和方法。
 
+#### 1. 分数数据模型
+
+试想我们想建立一个可以表现分数的数据类型。Python固然已经有了小数类型在本质上和分数具有同样的功能，但是假设我们想要像分数一样实际操作数据的分数，分母，且让分数加减乘除运算式实际返回约分好的分数，这个时候就有必要建立一个新的数据类型。
+
+```python
+# 建立新的类时用class关键字
+# __init__是特殊的构造函数，每次类被实例化时被呼叫
+# self是__init__函数必须要有的参数，因为观察下面的属性赋值语句左边，不可避免地要用到self
+class Fraction:
+    def __init__(self,top,bottom):
+        self.num = top
+        self.den = bottom
+
+myfraction = Fraction(3,5)  # <= 3/5
+```
+
+接下来我们从最简单的打印表示开始考虑Fraction这个类的操作接口。
+
+```python
+>>> myf = Fraction(3,5)
+>>> print(myf)
+<__main__.Fraction instance at 0x409b1acc>
+```
+
+以上的代码说明，Python不知道如何来打印Fraction这个类的对象，因为我们并没有给出任何的打印方式，所以只能返回对象的地址。解决这个问题的第一招是自己来定义一个show方法：
+
+```python
+def show(self):
+     print(self.num,"/",self.den)
+```
+
+但是这样并不能达到让Python的print语句认识Fraction对象的目的。
+
+```python
+...
+def __str__(self):
+    return str(self.num)+"/"+str(self.den)
+ 
+>>> myf = Fraction(3,5)
+>>> print(myf)
+3/5
+>>> print("I ate", myf, "of the pizza")
+I ate 3/5 of the pizza
+>>> myf.__str__()
+'3/5'   
+```
+
+\_\_str\_\_这个特殊函数在没有定义时，会自动返回对象的地址。现在我们按照上面的写法override之后，就可以正常打印分数了。
+
+接下来我们考虑如何实现分数的加法。现在如果我们不顾一切强行让Python加起两个分数：
+
+```python
+>>> f1 = Fraction(1,4)
+>>> f2 = Fraction(1,2)
+>>> f1+f2
+
+Traceback (most recent call last):
+  File "<pyshell#173>", line 1, in -toplevel-
+    f1+f2
+TypeError: unsupported operand type(s) for +:
+          'instance' and 'instance'
+```
+
+这个错误告诉我们，类似于print的问题，Python并不知道如何相加两个Fraction的对象。我们的解决方案也和前面类似，overide \_\_add\_\_这个方法：
+
+```python
+def __add__(self,otherfraction):
+     newnum = self.num*otherfraction.den + self.den*otherfraction.num
+     newden = self.den * otherfraction.den
+     return Fraction(newnum,newden)
+     
+```
 
