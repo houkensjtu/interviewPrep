@@ -183,3 +183,99 @@ print("The square root of x is ", guess)
 * Float number : In computer, numbers are represented in binary form.
 * A even better algorithm : Newton-Raphson method to find the root
 
+### 
+
+### Week 3 Tuples and lists
+
+* Tuples are **immutable**. Used to return more than one value!
+
+```python
+t = (2,4,"one")
+t[1] = 5 #=> Error!
+def quotient_and_remainder(x,y):
+    q = x//y
+    r = x%y
+    return (q,r)
+```
+
+* iterate over tuples
+
+```python
+for t in a_Tuple:
+    ...
+```
+
+* An exercise : Write a procedure called `oddTuples`, which takes a tuple as input, and returns a new tuple as output, where every other element of the input tuple is copied, starting with the first one. So if test is the tuple `('I', 'am', 'a', 'test', 'tuple')`, then evaluating `oddTuples` on this input would return the tuple `('I', 'a', 'tuple')`.Code Editor1 
+
+```python
+def oddTuples(aTup):
+    # a placeholder to gather our response
+    rTup = ()
+    index = 0
+
+    # Idea: Iterate over the elements in aTup, counting by 2
+    #  (every other element) and adding that element to 
+    #  the result
+    while index < len(aTup):
+        rTup += (aTup[index],)
+        index += 2
+
+    return rTup
+
+def oddTuples2(aTup):
+    return aTup[::2]
+
+```
+
+* List is a lot like tuples, but lists are **mutable.**
+
+```python
+# A traditional way to iterate over list
+total = 0
+for i in range(len(list)):
+    total += list[i)
+return total
+
+# A cleaner way
+total = 0
+for i in list:
+    total += i
+return total
+```
+
+* List operations: L.append\(element\), del\(L\[index\]\), L.pop, L.remove \(element\)
+* split method on a string return a string
+* sorted\(L\), L.sort\(\) &lt;- mutate the list, L.reverse\(\); **L.sort\(\)会修改原来的list，L.sorted\(\)则只是返回一个排序好的list，原来的list不变**
+* Mutation, aliasing, cloning : **list可以有不同的别名，其实就是指针，指向同一个内存同一个list内容**
+
+```python
+# 这就是把A和B都指向了同一个list，修改其中之一，另外一个也被修改
+listA = listB
+
+# 这是拷贝了一个list，此时两个list不再互相关联
+listA = listB[:]
+
+# 这里不论是拷贝，还是别名，都会返回True
+listA == listB
+
+# 这里只有别名才会返回True，如果是拷贝返回False
+listA is listB
+```
+
+* **Function as object** : have types, can be element of data structures like lists, can appear in exp
+
+```python
+def applyFunction(L, f):
+    for i in range(len(L)):
+        L[i] = f(L[i])
+```
+
+* **Python map : 注意map返回的是一个iterable, 而不是一个list; map也可以接受两个参数**
+
+```python
+map(abs, [1,2,3,-4.-6])
+for e in map(abs, [1,2,3,-4,-6]):
+    print(e)
+map(min, listA, listB) # 这里返回的是两个list的最小值
+```
+
