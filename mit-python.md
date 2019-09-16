@@ -183,8 +183,6 @@ print("The square root of x is ", guess)
 * Float number : In computer, numbers are represented in binary form.
 * A even better algorithm : Newton-Raphson method to find the root
 
-### 
-
 ### Week 3 Tuples and lists
 
 * Tuples are **immutable**. Used to return more than one value!
