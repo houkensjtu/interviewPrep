@@ -1,6 +1,6 @@
 # Java
 
-#### 番外篇：魔乐科技 第一行代码Java
+### 番外篇：魔乐科技 第一行代码Java
 
 * 最简单的Hello world程序结构，Java程序的编译执行方法
 * 基本数据类型int, float, double, char, boolean, String
