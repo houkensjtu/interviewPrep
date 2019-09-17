@@ -201,4 +201,63 @@ def __add__(self,otherfraction):
 #### 2. 逻辑门电路模拟
 
 * 在这个例子中将写一个类来模拟逻辑门电路的举动，主要涉及的概念是类的继承。
-* 
+* 基本的逻辑门主要有两类，**binary和unary**，与门或门属于binary，而非门由于只有一个输入属于unary。在编写的层次上，计划一个基类LogicGate，下面有两个子类binary和unary，再下面各个具体的逻辑门种类。
+
+```python
+class LogicGate():
+    def __init__(self,label):
+        self.label = label
+        self.output = None
+        
+    def get_label(self):
+        return self.label
+    
+    def get_output(self):
+        self.output = self.performLogic()
+        return self.output
+```
+
+* 上面的self.performLogic\(\)方法是用来根据输入计算输出的函数，这里并不需要写入LogicGate这个基础类中，可以**等到下面具体的逻辑门里再去实现，这是非常有用的一种构造技巧**。
+* 接下来就用继承的方法，从LogicGate出发写两个逻辑门的类型，需要注意的是继承的写法，以及构造方法中调用父类构造的方法。**这是一个固定的写法，每当继承父类时，子类中总是先呼叫父类的构造方法，然后接下去写自己的构造内容**
+
+```python
+class binaryGate(LogicGate):
+    def __init__(self, label):
+        LogicGate.__init__(self, label)
+        self.pinA = None
+        self.pinB = None
+    
+    def getPinA(self):
+        return int(input("Enter pin A for gate "+self.get_label() + "->"))
+        
+    def getPinB(self):
+        return int(input("Enter pin B for gate "+self.get_label() + "->"))
+
+class UnaryGate(LogicGate):
+# 同上不再赘述
+```
+
+```python
+class AndGate(BinaryGate):
+
+    def __init__(self,n):
+        super(AndGate,self).__init__(n)
+
+    def performGateLogic(self):
+
+        a = self.getPinA()
+        b = self.getPinB()
+        if a==1 and b==1:
+            return 1
+        else:
+            return 0
+            
+>>> g1 = AndGate("G1")
+>>> g1.getOutput()
+Enter Pin A input for gate G1-->1
+Enter Pin B input for gate G1-->0
+0
+```
+
+
+
