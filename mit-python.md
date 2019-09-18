@@ -188,6 +188,8 @@ print("The square root of x is ", guess)
 * Tuples are **immutable**. Used to return more than one value!
 
 ```python
+t = ()  # <= An empty tuple
+t = (2,) # <= 只有一个元素的时候，要加逗号！如果不加逗号，t就变成了一个单元素，而不是tuple
 t = (2,4,"one")
 t[1] = 5 #=> Error!
 def quotient_and_remainder(x,y):
@@ -276,4 +278,51 @@ for e in map(abs, [1,2,3,-4,-6]):
     print(e)
 map(min, listA, listB) # 这里返回的是两个list的最小值
 ```
+
+#### Sequences common operations
+
+* Common operations : strings, tuples, ranges, lists
+* **seq\[i\] , len\(seq\), seq1+seq2, seq\[start:end\], e in seq, e not in seq, for e in seq**
+
+#### Dictionaries
+
+* store pairs of data, key and value
+
+```python
+mydict = {}
+grades = {'Ana':'B', 'John':'A','Katy':'A'}
+
+>>> grades['Ana'] # => 'A'
+>>> grades['Sylvia'] = 'A+' # Added an entry
+>>> 'John' in grades # => True
+>>> grades.keys() # => Return a List of keys
+>>> grades.values()
+```
+
+* **Key can be any immutable type \(int, float, string, tuple, bool\)**
+* Values can be any type \(mutable or immutable\)
+* Application of a dictionary:
+
+```python
+def lyrics_to_frequency(lyrics):
+    mydict = {}
+    for word in lyrics:
+        if word in mydict:  # <= 这里也可以写mydict.keys()
+            mydict[word] += 1
+        else:
+            mydict[word] = 1
+    return mydict
+    
+def most_common(frequency_dict):
+    values = frequency_dict.values()
+    best = max(values)  # <= 这里也可以用一个循环体来找出最大，但是max这个方法更为简洁，易读
+    
+    words = []
+    for k in frequency_dict:  # <= 和上面一样，dict的循环默认是循环key，也可以明写.keys()
+        if frequency_dict[k] == best:
+            words.append(frequency_dict[k])
+    return (words, best)
+```
+
+* 一个用dict来存储计算过程中结果的dynamic programming例子\(fibonacci number\)
 
