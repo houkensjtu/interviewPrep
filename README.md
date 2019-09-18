@@ -34,18 +34,19 @@
 
 平时每天回家争取确保**两个小时**的学习时间，可以学习两个课程主题，或者两个代码练习。
 
-1. Monday : 学堂在线，Princeton Java书中练习
-2. Tuesday: CS61A，**Python Data Structure**
+1. Monday : **学堂在线**，**CS 15-121** / Princeton Java书中练习
+2. Tuesday: **CS61A**，**Python Data Structure**
 3. Wednesday: **CS15-122**（白天可以看一些资料），**MIT Python视频**
 4. Thursday: **CS15-122**（白天可以看一些资料），**MIT Python视频**
-5. Friday: CS61A，**Python Data Structure**
+5. Friday: **CS61A**，**Python Data Structure**
 6. Sat/Sun: 优先级：追赶一周中落下的内容&gt;Python Crash Course Project&gt;Qt C++&gt;Udemy **Javascript算法入门**&gt;15-112 Python 练习&gt;CSE351&gt;
 7. Sat/Sun: 额外任务：研究就业市场，关键要弄清，自己向往的职位有多少机会，需要什么技能树？
 
 #### 参考资源
 
-* [CS 15-112](http://www.cs.cmu.edu/~112/schedule.html): Prerequisite course for 15-122. Teach basics of Python.
 * [CS61A](https://cs61a.org/): Structure and Interpretation of Computer Programs. \([Textbook](http://composingprograms.com/)\)
+* [CS 15-112](http://www.cs.cmu.edu/~112/schedule.html): Prerequisite course for 15-122. Teach basics of Python.
+* [CS 15-121](https://www.cs.cmu.edu/~mrmiller/15-121/): Introduction to data structure \(Java\). \(Textbook\)
 * [CS 15-122](http://www.cs.cmu.edu/~fp/courses/15122-f15/schedule.html): Prerequisite course for CSAPP. Teach C0/C language. \([Lecture Note](https://www.cs.cmu.edu/~15122/schedule.shtml), [Homework](http://www.cs.cmu.edu/~fp/courses/15122-f15/assignments.html), [C0 Language](http://c0.typesafety.net/tutorial/)\)
 * [Python Data Structure book](https://runestone.academy/runestone/books/published/pythonds/index.html) 
 * [CSE 351](https://courses.cs.washington.edu/courses/cse351/19su/#home) : Hardware and Software interface, UW version of CSAPP. Easier to follow.
@@ -53,6 +54,7 @@
 * [Coding interview univ.](https://github.com/jwasham/coding-interview-university)
 * [Interactive coding challenges](https://github.com/donnemartin/interactive-coding-challenges)
 * [CS125](https://cs125.cs.illinois.edu/) : Introduction to computer science \(UIUC\)
+* [CMU计算机专业本科教育方针](http://reports-archive.adm.cs.cmu.edu/anon/2010/CMU-CS-10-140.pdf)
 
 #### 参考图书
 
