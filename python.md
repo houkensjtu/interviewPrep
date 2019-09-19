@@ -4,7 +4,7 @@ description: Problem Solving with Algorithms and Data Structures using Python
 
 # Python Data Structure
 
-\*\*\*\*[**这是**](https://runestone.academy/runestone/books/published/pythonds/index.html)一本基于Python的讲解数据结构和算法的入门书。
+> [**这是**](https://runestone.academy/runestone/books/published/pythonds/index.html)一本基于Python的讲解数据结构和算法的入门书。
 
 ### Ch1. Introduction
 
