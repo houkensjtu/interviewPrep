@@ -12,4 +12,5 @@
 * [学堂在线C++ 初级](xue-tang-zai-xian-c++-chu-ji.md)
 * [UW CSE 351](cse-354.md)
 * [Practice problems](practice-problems.md)
+* [CMU 计算机专业本科教育方针改革](cmu-ji-suan-ji-zhuan-ye-ben-ke-jiao-yu-fang-zhen-gai-ge.md)
 
