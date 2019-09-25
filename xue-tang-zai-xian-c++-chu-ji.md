@@ -108,3 +108,89 @@ int (f);
 static_cast<int>(f); // C++风格的类型转换
 ```
 
+## 第三章 C++简单程序设计（二）
+
+#### C++输入输出流
+
+* 将信息从程序空间外，输入程序空间内，称为输入流; 反之就是输出流
+* 使用信息流，需要建立流对象，**cin，cout都是预先定义好的标准输入输出流的对象**（也就是从键盘读取，从屏幕输出）。本章仅介绍cin / cout。在后续课程会介绍，给文件输入输出时使用的流对象
+* **插入运算符&lt;&lt;，作用在输出流对象cout上**，就可以实现标准输出功能。
+
+```cpp
+int a, b;
+cin >> a >> b;
+
+// I/O流类库的操作符
+cout << setw(5) << setprecision(3) << 3.1415926;
+```
+
+#### if语句
+
+* if语句的单选择，双选择，多重选择
+
+```cpp
+if (x > y) cout << x;
+
+if (x > y) 
+  cout << x;
+else 
+  cout << y;
+  
+if (expr1)
+  statement1;
+else if (expr2)
+  statement2;
+...
+else
+  statementn;
+
+```
+
+#### switch语句
+
+```cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+  int n;
+  cout << "Enter a number" << endl;
+  cin >> n;
+  switch(n){
+  case 0:
+    cout << "Sunday" << endl;
+    break;  // <= break是必须的
+  case 1:
+    cout << "Monday" << endl;
+    break;
+  case 2:
+    cout << "Tuesday" << endl;
+    break;  
+  ...
+  }
+}
+```
+
+* 注意在switch结构中，break是必须的，不然会自动falldown执行所有下面的语句
+
+#### while语句，do-while语句，for语句
+
+* for语句处理循环次数已知的语句，while则处理中止情况已知的情况
+* **break用于直接跳出最接近的一层循环**，continue用于**跳过当前循环步**，进入下一个循环步骤
+
+#### typedef关键字
+
+```cpp
+typedef double Area;
+using Area = double;
+
+enum Weekday {sun, mon, tue, wed, thu, fri, sat};
+// 默认情况下sun = 0, mon = 1, tue = 2...
+enum Weekday {sun = 7, mon = 1, tue, wed, thu, fri, sat};
+
+auto var1 = var2 + var3;
+// var1的类型会自动由后面表达式的类型决定
+```
+
+
+
