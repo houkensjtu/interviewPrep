@@ -326,3 +326,44 @@ def most_common(frequency_dict):
 
 * 一个用dict来存储计算过程中结果的dynamic programming例子\(fibonacci number\)
 
+### Week 4 Good programming practices
+
+#### Testing code
+
+* Testing, debugging: expectation vs. reality
+* Check the program -&gt; **testing**; keep lid closed -&gt; **defensive programming**; cleaning the kitchen -&gt; **debugging**
+* Defensive programming -&gt; Write specifications + modularize + check input / output
+* Testing : compare output with expected output
+* Guidelines:
+* * Break programs into modules that can be tested easily
+  * Document constraints and assumptions of your code
+* Steps:
+* * First, make sure the code runs
+  * Have a set of expected results with a set of inputs
+* Class of tests:
+* * **unit testing** : validate each piece of the program  &lt;= Make sure you do this before next step! don't rush!
+  * **integration testing** : overall program work
+* Blackbox testing : without looking at the implementation, compare program results with expectations
+
+```python
+def sqrt(x, eps):
+""" Assume x, eps floats, x>=0, eps>0
+    Returns res such that x-eps<=res*res<=x+eps. """
+```
+
+* Glassbox testing : use the code and test each path of the code, branches, for loops, while loops...
+
+#### Debug tips
+
+* Bugs : isolate the bug, eradicate the bug, retest
+* Type of bugs : 
+* * overt bug : cause code to crash or infinite loop
+  * covert bug: runs normally, but return wrong value
+  * persistent bug : occurs every time
+  * intermittent : only occurs occasionally 
+* Debugging : steep learning curve, use print function, use bisection method, test your function before finishing the whole program
+* Remember to **backup your code before you modify**
+
+#### A debugging example
+
+* 
