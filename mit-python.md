@@ -364,6 +364,94 @@ def sqrt(x, eps):
 * Debugging : steep learning curve, use print function, use bisection method, test your function before finishing the whole program
 * Remember to **backup your code before you modify**
 
-#### A debugging example
+#### Exceptions
+
+* SyntaxError, IndexError, TypeError, NameError, TypeError...
+* What to do when encounter an error? **Stop execution, signal error condition :=&gt; raise exception**
+
+```python
+try:
+    a = int(input("Tell me one number:"))
+    b = int(input("Tell me another number:")
+    print(a/b)
+except:
+    print("Bug in user input.")
+print("Finished.")
+```
+
+* 在上面的例子中，**try-except语句的存在可以捕获任何的意外，并且在意外发生时，执行except中的语句，使得错误仍然在控制之下**，而不会让程序自动崩溃失控
+* 拓展上面的例子，我们可以对可能产生的意外做更精细的控制
+
+```python
+try:
+    a = int(input("Tell me one number:"))
+    b = int(input("Tell me another number:")
+    print(a/b)
+except ValueError:
+    print("Bug in user input.")
+except ZeroDivisionError:
+    print("")
+except:
+    print("")
+print("Finished.")
+```
+
+* Example exception usage:
+
+```python
+while True:
+    try:
+        n = input("Please enter an integer:")
+        n = int(n)
+        break
+    except ValueError:
+        print("Input is not an integer")
+print("Finished.")
+```
+
+```python
+data = []
+file_name = input("Provide a name of file of data")
+
+try:
+    fh = open(file_name, 'r')
+except IOError:
+    print("Cannot open", file_name)
+else:
+    for new in fh:
+        if new != '\n':
+            addIt = new[:-1].split(',')
+            data.append(addIt)
+finally:
+    fh.close()
+```
+
+* **Exception可以经常用在处理一些大量的数据，或者用户的输入，这些处理在设计时就预先知道，可能会有各种各样的缺陷或者意外，**所以可以在程序中预先用try来给予处理
+* Exception as control flow: we can **raise an exception** when unable to produce a result consistent with function's spec.
+
+```python
+raise ValueError("Something is wrong.")
+```
+
+```python
+def get_ratios(L1, L2):
+    ratio = []
+    for index in len(L1):
+        ratio.append(L1[index] / L2[index])
+    except ZeroDivisionError:
+        ratio.append( float('NaN') )
+    except:
+        raise ValueError ("Bad input value")
+    return ratio
+
+```
+
+* Assertion: 断言比例外更进一步: 在所有你断言是真的情况之外，都会抛出AssertionError。一个通常的应用就是用来检查函数的输入和输出，是否符合编写时的意图
+
+```python
+def avg(grades):
+    assert not len(grades) == 0, 'no grades data'
+    return sum(grades)/len(grades)
+```
 
 * 
