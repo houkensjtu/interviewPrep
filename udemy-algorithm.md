@@ -36,4 +36,13 @@ console.log(t2-t1)
 * **Rather than counting seconds, let's count the number of simple operations the computer has to perform**!
 * But counting is hard, sometimes you don't know the exact number or miss something. But regardless of the exact number, the number of operations roughly grow proportionally as n.
 * **Big-O : how the runtime grows as the input size grows**.
-* 
+* Big-O simplifying tips:
+* * Constant don't matter \( O\(5n\) =&gt; O\(n\) \)
+  * Smaller terms don't matter \( O\(n+10\) =&gt; O\(n\), O\(n^2 + 5n + 8\) =&gt; O\(n^2\) \)
+  * Common constant runtime operation : 
+  * * arithmetic operation
+    * variable assignment
+    * accessing elements in an array
+
+
+
