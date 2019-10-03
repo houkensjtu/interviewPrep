@@ -259,5 +259,21 @@ Enter Pin B input for gate G1-->0
 0
 ```
 
+* 最后我们有一个connector的类，有get\_from和getTo两个功能，一旦前面的门被它连接，只要呼叫它的get\_From或者getTo，就可以获取前面或者后面的门的输入输出。
 
+```python
+class Connector:
+
+    def __init__(self, fgate, tgate):
+        self.fromgate = fgate
+        self.togate = tgate
+
+        tgate.setNextPin(self)
+
+    def getFrom(self):
+        return self.fromgate
+
+    def getTo(self):
+        return self.togate
+```
 
