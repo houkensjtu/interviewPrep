@@ -192,5 +192,43 @@ auto var1 = var2 + var3;
 // var1的类型会自动由后面表达式的类型决定
 ```
 
+## 第四章 函数
 
+* 导学：函数-&gt;程序的功能模块，函数的定义与调用，内联函数，constexpr函数，带默认参数的函数，函数的重载，C++系统函数
 
+#### 定义函数
+
+* 返回值类型 函数名（参数列表） {函数体}
+* 函数调用：在调用之前必须要声明函数原型（函数定义在别的文件中，或者函数定义在调用之后）。
+
+```cpp
+double power (double x, int n)
+{
+  double val = 1.0;
+  while (n--)
+    val *= x;
+  return val;
+}
+```
+
+* 内联函数关键字inline：节省参数传递，控制转移等计算开销。内联函数不能有循环语句，函数定义必须在调用之前。编译器的优化会自动选择在编译时要不要转换成inline函数，因此定义未必100%有效。
+
+```cpp
+#include <iostream>
+using namespace std;
+
+inline double area(double r)
+{
+  return 3.14*r*r;
+}
+
+int main()
+{
+  double r = 3.0;
+  double a = area(r);
+  cout << a << endl;
+  return 0;
+}
+```
+
+* 
