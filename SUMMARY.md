@@ -15,4 +15,5 @@
 * [Practice problems](practice-problems.md)
 * [CMU 计算机专业本科教育方针改革](cmu-ji-suan-ji-zhuan-ye-ben-ke-jiao-yu-fang-zhen-gai-ge.md)
 * [学习方法论](xue-xi-fang-fa-lun.md)
+* [除以2](chu-yi-2.md)
 
