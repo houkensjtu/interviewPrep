@@ -211,7 +211,9 @@ double power (double x, int n)
 }
 ```
 
-* 内联函数关键字inline：节省参数传递，控制转移等计算开销。内联函数不能有循环语句，函数定义必须在调用之前。编译器的优化会自动选择在编译时要不要转换成inline函数，因此定义未必100%有效。
+#### 内联函数
+
+内联函数关键字inline：节省参数传递，控制转移等计算开销。内联函数不能有循环语句，函数定义必须在调用之前。编译器的优化会自动选择在编译时要不要转换成inline函数，因此定义未必100%有效。
 
 ```cpp
 #include <iostream>
@@ -231,4 +233,86 @@ int main()
 }
 ```
 
-* 
+#### 嵌套与递归
+
+* 嵌套：函数中调用别的函数。调用时保存调用现场（stack的概念会在第9章学习），呼叫目标函数
+* 递归：自己呼叫自己的过程
+
+```cpp
+unsigned fac(unsigned n)
+{
+  unsigned f;
+  if (n==0) return 1;
+  else 
+    f = n * fac(n-1);
+  return f;
+}
+```
+
+* 典型递归例题：从n个人当中选出k个人作为委员会，有多少种选法？
+
+```cpp
+int selection(int n, int k)
+{
+  if (k==1)
+    return (n - k + 1);
+  else
+    return n / k * selection(n-1, k-1);
+}
+```
+
+* Hanoi tower
+
+```cpp
+void move(char src, char dest)
+{
+  cout << src << "->" << dest << endl;
+}
+void hanoi(int m, char src, char medium, char dest)
+{
+  if (m==1)
+    move(src,dest);
+  else{
+    hanoi(m-1, src, dest, medium);
+    move(src, dest);
+    hanoi(m-1, medium, src, dest);
+  }
+}
+```
+
+* 函数的参数传递。函数在被调用时才给参数分配空间，接收实际的参数。参数的接收有单向和双向。默认情况下是单向的，也就是传值。在单向的时候，参数只能作为辅助函数用，而不能被修改。
+* 有时候，函数想要返回多个值，而返回值只能返回一个值，这个时候就需要双向传递，传引用。另外，有时候传给函数的参数本身非常庞大，不希望通过传值而希望传引用，这个时候也用到传递引用，但是又不希望函数修改这个参数本身。
+
+#### 引用类型
+
+```cpp
+int i;
+int &ri = i; // ri成为了i的一个别名
+```
+
+* 为什么需要给变量别名呢？因为需要给函数做参数
+
+```cpp
+// 这个函数是没效果的
+void swap(int a, int b)
+{
+  int temp = a;
+  a = b;
+  b = temp;
+}
+
+// 这样就可以了，因为进行了双向传递
+void swap(int &a, int &b)
+{
+  int temp = a;
+  a = b;
+  b = temp;
+}
+```
+
+#### 带有可变参数长度的函数\(C++11\)
+
+* initialization\_list &lt;T&gt; var;
+
+
+
