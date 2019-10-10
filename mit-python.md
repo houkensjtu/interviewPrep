@@ -454,4 +454,42 @@ def avg(grades):
     return sum(grades)/len(grades)
 ```
 
+### Week 5 Object oriented programming
+
+#### OOP programming
+
+* Everything is an object. Each object has **a type, an internal data representation, and a set of procedures.**
+* Objects are a data abstraction that capture:
+* * internal data representation through data attributes
+  * interfaces for interacting with objects
+* Some objects types built in to Python: list, tuple, dict
+* **\[1,2,3,4\] is of type list. How are lists represented internally? -&gt; Linked list of cells.**
+* **Internal representation should be private.**
+
+#### A concrete example
+
+* Define a class.
+
+```python
+class Coordinate(object):
+    def __init(self, x, y):
+        self.x = x
+        self.y = y
+    def distance(self, other):
+        x_diff = self.x - other.x
+        y_diff = self.y - other.y
+        return (x_diff**2 + y_diff**2)**0.5
+        
+c = Coordinate(3,4)
+origin = Coordinate(0,0)
+```
+
+* **\_\_init\_\_\(\)** is a special method. self refer to an instance of the class. self is automatically passed to the method. self不管是在什么method的定义中，永远都是第一个参数
+* print representation of an object: **the \_\_str\_\_ method**.
+
+```python
+def __str__(self):
+    return '(' + self.x +',' + self.y + ')'
+```
+
 * 
