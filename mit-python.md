@@ -492,4 +492,38 @@ def __str__(self):
     return '(' + self.x +',' + self.y + ')'
 ```
 
-* 
+* 接下来给出了一个分数的例子，这个例子我已经比较熟悉了
+
+```python
+class Fraction:
+    def __init__(self, numer, denom):
+        self.numer = numer
+        self.denom = denom
+    def __str__(self):
+        return str(self.number) + '/' + str(self.denom)
+    def getNumer(self):
+        return self.number
+    def getDenom(self):
+        return self.denom
+    def __add__(self, other):
+        ...
+```
+
+* 第二个例子是一个integer set，特殊的地方在于要确保set中没有重复的数字。同时，提供insert和remove方法作为interface。在insert的时候，要**确保到data structure invariant，也就是不能有重复**
+
+```python
+class integerSet:
+    def __init__(self):
+        self.val = []
+    def insert(self, e):
+        if not e in self.val:
+            val.append(e)
+    def remove(self, e):
+        try:
+            self.val.remove(e)
+        except:
+            raise ValueError(str(e) + "not found")
+```
+
+
+
