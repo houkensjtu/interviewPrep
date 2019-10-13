@@ -525,5 +525,31 @@ class integerSet:
             raise ValueError(str(e) + "not found")
 ```
 
+#### Why OOP?
+
+* Bundle together objects that **share common attributes**. Build **abstractions to make distinction between implementation and usage**.
+* Create our own class of objects on top of Python's basic classes
+* Python并没有强制保护class内部数据，你**不能设置数据为private**，但是更好的做法是不要直接访问类内部数据，而是用getter和setter方法来修改，**保持内部数据和外部接口的分离**
+
+**Inheritance**
+
+* 继承类的写法，覆盖父类的方法。不同的子类可以有不同的父类方法，
+
+#### Class variables
+
+* 类可以有自己的变量，定义在\_\_init\_\_方法的外面。所有的instance将共享这个variable，就类似于Java中的static变量
+
+```python
+class Rabbit(Animal):
+    tag = 1  # <= class variable
+    def __init__(self, age, parent1 = None, parent2 = None):
+        Animal.__init__(self,age)
+        self.parent1 = parent1
+        self.parent2 = parent2
+        self.rid = Rabbit.tag  # <= Access the class variable
+        Rabbit.tag += 1
+        
+```
+
 
 
