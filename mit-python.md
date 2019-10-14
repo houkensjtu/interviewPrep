@@ -551,5 +551,21 @@ class Rabbit(Animal):
         
 ```
 
+#### Building a class : an extended example
+
+* Build the Person class:
+
+```python
+class Person(object):
+    def __init__(self):
+        self.name = name
+        self.birthday = None
+        self.lastName = name.split(' ')[-1]
+    def getLastname(self):
+        return self.lastName
+    def __str__(self):
+        return self.name
+```
+
 
 
