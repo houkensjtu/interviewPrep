@@ -277,3 +277,65 @@ class Connector:
         return self.togate
 ```
 
+### Ch2. A proper class
+
+这章看起来是要介绍一些关于写Class的技巧，但是2019年目前还没有更新完成。。
+
+### Ch3. Analysis
+
+接下来当然是老生常谈的算法分析问题了。
+
+* 为什么要分析算法？为了定量比较不同算法的好坏。程序的好坏有很多指标，比如易读性，速度，空间占用等。这里我们先考虑的是执行时间。比如说有一个求N项和的函数sumofN2\(n\):
+
+```python
+import time
+
+def sumOfN2(n):
+   start = time.time()
+
+   theSum = 0
+   for i in range(1,n+1):
+      theSum = theSum + i
+
+   end = time.time()
+
+   return theSum,end-start
+```
+
+我们在命令行中将其执行10000次：
+
+```python
+>>>for i in range(5):
+       print("Sum is %d required %10.7f seconds"%sumOfN(10000))
+Sum is 50005000 required  0.0018950 seconds
+```
+
+再试试将其执行100000次：
+
+```python
+>>>for i in range(5):
+       print("Sum is %d required %10.7f seconds"%sumOfN(100000))
+Sum is 5000050000 required  0.0199420 seconds
+```
+
+可以看到执行时间增长了10倍！现在假设我们有一个不同的函数，用求和公式求和：
+
+```python
+def sumOfN3(n):
+   return (n*(n+1))/2
+
+print(sumOfN3(10))
+```
+
+对这个程序进行测量的结果当然是：
+
+```python
+Sum is 50005000 required 0.00000095 seconds
+Sum is 5000050000 required 0.00000191 seconds
+Sum is 500000500000 required 0.00000095 seconds
+Sum is 50000005000000 required 0.00000095 seconds
+Sum is 5000000050000000 required 0.00000119 seconds
+```
+
+无论你执行多少次，花费的时间都是类似的。以上这些直接benchmark的方法固然给了我们对于程序性能的一定理解，但是这些计测都是依赖于特定的硬件环境，一旦硬件不同，结果也会相应改变，从而使得比较程序变得困难。因此这里开始引出big-O表示法的概念。
+

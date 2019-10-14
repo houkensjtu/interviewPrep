@@ -567,5 +567,7 @@ class Person(object):
         return self.name
 ```
 
+* 继续扩展这个类，建立MITPerson，Undergraduate student和Graduate student类。
+
 
 
