@@ -63,3 +63,10 @@
 * [剑指offer](https://book.douban.com/subject/6966465/)
 * [算法竞赛入门经典](https://book.douban.com/subject/25902102/)
 
+#### 一些无用的资源
+
+* [Study of the techniques for emulation programming](http://www.codeslinger.co.uk/files/emu.pdf)
+* [一个Chip-8模拟器的解释](http://www.codeslinger.co.uk/pages/projects/chip8/mychip8.html)
+* [关于Chip-8的一篇Blog](http://www.multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/)
+* [Mastering Chip-8](http://mattmik.com/files/chip8/mastering/chip8.html)
+
