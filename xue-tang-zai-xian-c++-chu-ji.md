@@ -392,3 +392,117 @@ int main()
 }
 ```
 
+## 第五章 类与对象
+
+#### 面向对象编程的特点
+
+* 抽象：数据抽象和代码抽象
+* 例子：钟表
+
+```cpp
+class Clock
+{
+  public:
+    void setTime(int hour, int minute, int second);
+    void getTime();
+  private: int hour, minute, second;
+}
+```
+
+* 封装：接口与隐藏细节
+* 继承：第七章介绍
+* 多态：第八章介绍
+
+#### 类与对象的定义
+
+* 定义一个类的基本语法
+
+```cpp
+class name{
+  public:
+         公有成员（外部接口）
+  private:
+         私有成员
+  protected:
+         保护成员
+}
+```
+
+* 公有成员：与外部接口。
+* 私有成员：只允许本类中的函数访问，类外部不能访问。
+* 对象定义的语法：
+
+```cpp
+Clock myClock;
+myClock.getTime();
+```
+
+* 类的成员函数定义两种方式：
+* * **可以在类内给出函数体**
+  * **也可以在类内只声明，在类外来定义函数体**。类外定义时需要在函数名前注明类的名字（ **:: 在这里称为作用域限定符**）：
+
+```cpp
+class Clock
+{
+  public:
+    void setTime(int newH=0, int newM=0, int newS=0);
+    void getTime();
+  private: int hour, minute, second;
+}
+
+// 注意这里定义成员函数的语法
+void Clock::setTime(int newH, int newM, int newS)
+{
+  hour = hour;
+  minute = newM;
+  second = newS;
+}
+
+void Clock::getTime()
+{
+  cout << hour << ":" << minumte << ":" << second << endl;
+}
+
+int main()
+{
+  Clock myClock;
+  myClock.setTime(8,30,30);
+  myClock.getTime();
+  return 0;
+}
+```
+
+#### 构造函数
+
+* **函数名与类名相同**，构造函数不可以定义返回值语句; 构造函数在建立对象时自动被调用
+* **允许不定义构造函数**; 没有定义构造函数的时候，编译器会自动给出一个默认的构造函数
+
+```cpp
+class Clock
+{
+  public:
+    // 构造函数，没有返回值类型
+    Clock(int newH, int newM, int newS);
+    Clock();  // 提供一个默认构造函数，可以不给参数
+    void setTime(int newH=0, int newM=0, int newS=0);
+    void getTime();
+  private: int hour, minute, second;
+}
+
+Clock::Clock(int newH, int newM, int newS):
+  hour(newH), minute(newM), second(newW){
+}
+
+Clock::Clock(): hour(0), minute(0), second(0){
+}
+
+int main()
+{
+  Clock c1 = (8,30,0);
+  Clock c2;  // <- 此处调用无参数的构造函数
+  ...
+}
+```
+
+* 构造函数**初始化列表的方法**（看上面的例子）
+
