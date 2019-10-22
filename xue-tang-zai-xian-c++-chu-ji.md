@@ -406,7 +406,7 @@ class Clock
     void setTime(int hour, int minute, int second);
     void getTime();
   private: int hour, minute, second;
-}
+}; // <= 注意这里要分号，因为这是一个声明而不是定义
 ```
 
 * 封装：接口与隐藏细节
@@ -425,7 +425,7 @@ class name{
          私有成员
   protected:
          保护成员
-}
+};// <= 注意这里要分号，因为这是一个声明而不是定义
 ```
 
 * 公有成员：与外部接口。
@@ -448,7 +448,7 @@ class Clock
     void setTime(int newH=0, int newM=0, int newS=0);
     void getTime();
   private: int hour, minute, second;
-}
+};// <= 注意这里要分号，因为这是一个声明而不是定义
 
 // 注意这里定义成员函数的语法
 void Clock::setTime(int newH, int newM, int newS)
@@ -487,7 +487,7 @@ class Clock
     void setTime(int newH=0, int newM=0, int newS=0);
     void getTime();
   private: int hour, minute, second;
-}
+};// <= 注意这里要分号，因为这是一个声明而不是定义
 
 Clock::Clock(int newH, int newM, int newS):
   hour(newH), minute(newM), second(newW){
