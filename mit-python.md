@@ -652,7 +652,7 @@ def fib(n):
 
 * Fibnacci数的递归算法，如果不做加工是O\(2^n\)的exponential复杂度，因为每进一层，呼叫都是前面的两倍
 
-## Week7 Search and sorting algorithms
+### Week 6 Search and sorting algorithms
 
 #### Search algorithms
 
@@ -674,7 +674,8 @@ def linear_search(L,e):
 def binary_search(L,e):
     lo = 0
     hi = len(L)
-    while mid > lo:
+    mid = (lo + hi) / 2
+    while hi > lo:
         mid = (lo + hi) / 2
         if L[mid] == e:
             return True
@@ -685,17 +686,76 @@ def binary_search(L,e):
     return False
 ```
 
-akkasdfiej
+#### Bogo sort
 
-a
+* 随机排列所有元素，直到排序完成为止。。。Worst case是无穷大
 
-sdf\[e
+#### Bubble sort
 
+* 从第一个元素开始，依次与下一个元素比较，把比较大的元素向后swap，这样一个循环下来，最大的元素就到了最后。然后再从头开始，以此类推，复杂度是O\(n^2\)
 
+```python
+def bubble_sort(L):
+    swap = False
+    while not swap:
+        swap = True
+        for j in range(1,len(L)):
+            if L[j-1] > L[j]:
+                swap = False
+                temp = L[j]
+                L[j] = L[j-1]
+                L[j-1] = temp
+```
 
+#### Selection sort
 
+```python
+def selection_sort(L):
+    suffixSt = 0
+    while suffixSt != len(L):
+        for i in range(suffixSt, len(L)):
+            if L[i] < L[suffixST]:
+                L[suffixSt], L[i] = L[i], L[suffixSt]
+        suffixSt += 1
+```
 
+#### Merge sort
 
+```python
+def merge(left, right):
+    result = []
+    i,j = 0,0
+    # When both are not empty
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    # When either side is empty
+    while (i<len(left)):
+        result.append(left[i])
+        i += 1
+    while (j<len(right[j]):
+        result.append(right[j])
+        j += 1
+    return result
+    
+def merge_sort(L):
+    if len(L) <= 1:
+        return L[:]
+    else:
+        left = L[: len(L)//2]
+        right = L[len(L)//2:]
+        left = merge_sort(left)
+        right = merge_sort(right)
+        return merge(left, right)
+```
 
-adsfasdfs
+下面这张示意图还是非常不错的，很好地解释了merge sort的整个过程
+
+![](.gitbook/assets/deepinscreenshot_select-area_20191027224143.png)
+
+* 总结，所有的排序算法中，最快的就是nlog\(n\)，比较简单的selection sort和bubble sort则是n^2
 
