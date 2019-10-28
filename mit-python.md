@@ -569,5 +569,133 @@ class Person(object):
 
 * 继续扩展这个类，建立MITPerson，Undergraduate student和Graduate student类。
 
+### Week 6 Algorithmic complexity
 
+#### Program efficiency
+
+* How do we decide which program is most efficient : time and space efficiency
+* How to ? Measure the time, count the operations, abstract notion of order of growth
+
+```python
+import time
+
+t0 = time.clock()
+do some thing
+t1 = time.clock - t0
+print(t1)
+
+# Time measurement depends on the machine!
+```
+
+* Why not count the operations? -&gt; Don't need to be precise
+
+```python
+def search(L,e):
+    for i in L:
+        if i == e:
+            return True
+    return False
+```
+
+* 上面这个例子，如果第一次就找到e，那就是一个best case，相反如果找了整个list，那就是worst case。worst case时这个算法需要o\(n\)的时间。
+* 典型的order：constant, linear, quadratic, logarithmic, nlogn, exponential ...
+
+#### Big-O notation
+
+* Big O measures **the upper bound on the asymptotic growth**
+* **Big O is used to describe worst case**
+
+```python
+def factorial(x):
+    result = 1
+    while x > 0:
+        result *= x
+        x -= 1
+    return result
+```
+
+* 上面这个例子中，如果数operation的话，结果是1+5n+1。去掉常数和整数系数的话，这个算法就是O\(n\)。同样的，在求Big-O的时候，通常忽略阶数比较低的项而只留下最高次数项
+
+#### Complexity classes
+
+* Constant runtime : O\(1\): not so interesting
+* Logarithmic O\(logn\) : binary search
+
+#### Analyzing complexity
+
+* Polynomial complexity : nested loops
+
+```python
+def isSubset(L1, L2):
+    for e1 in L1:
+        matched = False
+        for e2 in L2:
+            if e1 == e2:
+                matched = True
+                break
+        if not matched:
+                return Flase
+    return True
+```
+
+#### Recursion complexity
+
+```python
+def fib(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
+```
+
+* Fibnacci数的递归算法，如果不做加工是O\(2^n\)的exponential复杂度，因为每进一层，呼叫都是前面的两倍
+
+## Week7 Search and sorting algorithms
+
+#### Search algorithms
+
+* Brute force : linear search. vs. Binary search : the list must be sorted.
+
+```python
+// 一个稍稍改良的线性搜索
+def linear_search(L,e):
+    for i in L:
+        if e == i:
+            return True
+        elif i > e: // <- 这里利用了list已经排序的特性
+            return False
+    return False // <- 但是最终的big-O还是线性的
+```
+
+```python
+// 自己写的二分查找 :P
+def binary_search(L,e):
+    lo = 0
+    hi = len(L)
+    while mid > lo:
+        mid = (lo + hi) / 2
+        if L[mid] == e:
+            return True
+        elif L[mid] > e:
+            hi = mid
+        else:
+            lo = mid
+    return False
+```
+
+akkasdfiej
+
+a
+
+sdf\[e
+
+
+
+
+
+
+
+adsfasdfs
 
