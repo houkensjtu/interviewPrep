@@ -31,14 +31,18 @@
 * C/C++ : CS15-122的C0语言训练
 * Java : Princeton的Java书
 * Python : Python Crash Course Part II的Project
+* Github上的[Coding interview prep](https://github.com/jwasham/coding-interview-university#dont-feel-you-arent-smart-enough)
+* Github上的[中文面试宝典](https://github.com/CyC2018/CS-Notes)
 
 平时每天回家争取确保**两个小时**的学习时间，可以学习两个课程主题，或者两个代码练习。
 
-1. Monday : **学堂在线**，**CS 15-121** / Princeton Java书中练习
-2. Tuesday: **CS61A**，**Python Data Structure**
+另外，现在感觉到建立1-2个有深度的side project必须要同时进行。
+
+1. Monday : **学堂在线**
+2. Tuesday: **Python Data Structure**
 3. Wednesday: **CS15-122**（白天可以看一些资料），**MIT Python视频**
 4. Thursday: **CS15-122**（白天可以看一些资料），**MIT Python视频**
-5. Friday: **CS61A**，**Python Data Structure**
+5. Friday: **Python Data Structure**
 6. Sat/Sun: 优先级：追赶一周中落下的内容&gt;Python Crash Course Project&gt;Qt C++&gt;Udemy **Javascript算法入门**&gt;15-112 Python 练习&gt;CSE351&gt;
 7. Sat/Sun: 额外任务：研究就业市场，关键要弄清，自己向往的职位有多少机会，需要什么技能树？
 
