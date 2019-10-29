@@ -506,3 +506,53 @@ int main()
 
 * 构造函数**初始化列表的方法**（看上面的例子）
 
+#### 复制构造函数
+
+* 用一个对象复制一个新的对象时用到的构造函数
+
+```cpp
+class Book
+{
+  public:
+    Book(int p);
+    Book(const Book &b); // <= 复制构造函数
+  private:
+    int price;
+}
+Book::Book(const Book &b)
+{}
+```
+
+* 这里的**const是希望保护原来的对象**，因为引用对象是存在修改原来对象的可能性的
+* 为什么需要复制构造函数呢？因为复制一个对象时，可能需要按照一些规则，修改对象的一部分属性，这样的时候，就需要特定的复制构造函数
+
+```cpp
+class Point
+{
+  public:
+    Point(int xx=0, int yy =0){ x = xx; y = yy;}
+    Point(const Point& p) = delete; // <= C++11的新关键字delete
+  private:
+    int x,y;
+}
+```
+
+* 默认构造函数的无效化，使用C++11的新关键字delete
+
+#### 析构函数
+
+* 对象生命周期结束时调用的函数，用来做对象消灭后的善后工作。**析构函数用波浪符号开始，不能有返回值，也不能有参数列表**
+
+```cpp
+class Point
+{
+  public:
+    Point(int xx=0, int yy =0){ x = xx; y = yy;}
+    ~Point(); // <= 析构函数不可以有参数
+  private:
+    int x,y;
+}
+```
+
+
+
