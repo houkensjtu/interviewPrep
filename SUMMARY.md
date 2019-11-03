@@ -17,4 +17,5 @@
 * [学习方法论](xue-xi-fang-fa-lun.md)
 * [除以2](chu-yi-2.md)
 * [CHIP-8 Emulator](chip-8-emulator.md)
+* [剑指Offer笔记](jian-zhi-offer-bi-ji.md)
 
