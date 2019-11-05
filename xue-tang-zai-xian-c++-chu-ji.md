@@ -552,6 +552,68 @@ class Point
   private:
     int x,y;
 }
+
+Point::~Point(){
+}
+```
+
+#### 类的组合
+
+#### 前向引用声明
+
+```cpp
+class B; // 前向引用声明
+
+class A
+{
+  public:
+  void f(B b);
+};
+
+class B
+{
+  public:
+  void g(A a);
+};
+```
+
+#### UML简介
+
+* 三个基本部分：事物，关系，图
+* UML图标的简介，各种类的依赖关系
+
+#### 结构体struct
+
+* 结构体在C++中是一种特殊类，默认成员变量都是public。（一般类默认是private）
+* 对于一组组合在一起的数据，而没有太多的操作函数，就可以考虑使用struct
+* 结构体的声明和类基本类似，关键字使用struct而不是class
+* C++中的struct也可以定义函数成员，C中是不可以的
+
+```cpp
+struct Student
+{
+  int num;
+  string name;
+  char sex;
+  int age;
+};
+
+Student stu = {98001, "Lin Lin", 'F', 19};
+cout << stu.name << endl;
+```
+
+#### 联合体union
+
+* 联合体的定义也和struct很相似，不同之处是联合体的所有成员都共用一个内存，不能同时存在
+
+```cpp
+union Mark
+{
+  // 以下三个成员只能存在一个
+  char grade;
+  bool pass;
+  int percent;
+};
 ```
 
 
