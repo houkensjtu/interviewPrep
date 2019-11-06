@@ -339,3 +339,61 @@ Sum is 5000000050000000 required 0.00000119 seconds
 
 无论你执行多少次，花费的时间都是类似的。以上这些直接benchmark的方法固然给了我们对于程序性能的一定理解，但是这些计测都是依赖于特定的硬件环境，一旦硬件不同，结果也会相应改变，从而使得比较程序变得困难。因此这里开始引出big-O表示法的概念。
 
+#### 一些简单的测量实验
+
+* 首先我们了解一些用Python来计测时间的简单方法：
+* * 用time\(\)函数计测开始及结束时间（最简单直观，但是受到的影响较多）
+
+```python
+import time
+
+start = time.time()
+l = []
+for i in range(10000):
+    l.append(i)
+print(time.time() - start) # time返回的结果单位是second
+```
+
+* 使用timeit模块里的Timer类
+
+```python
+def test1():
+   ...
+
+// Timer也是timeit里的一个类；使用时第一个参数是执行语句，第二个是setup语句
+t1 = Timer("test1()", "from __main__ import test1") 
+print("Test",t1.timeit(number=1000), "milliseconds")
+```
+
+* 在命令行用timeit模块
+
+```bash
+$ python -m timeit -s "setup" "statement"
+# timeit会自动把statement跑1000000次（默认），然后给你一个usec的数值
+```
+
+* 注意到timeit模块会要求你给出setup语句，其中需要from \_\_main\_\_ import。。。这其中的原因是，**timeit会自动建立一个空白的namespace防止现有space影响其计测结果**。也是因此你需要明确指示timeit应该要import哪些模块。
+* time\(\)和timeit\(\)的比较：timeit\(\)应该来说更加准确，但是准确多少呢？我准备了如下一个s小实验：
+
+```python
+import time
+
+def test1():
+    start = time.time()
+    for i in range(1000):
+        l = [i for i in range(1000)]
+    return (time.time()-start)
+print(test1())    
+# => 0.026647329330444336
+```
+
+```python
+>>> from timeit import Timer
+
+>>> t1 = Timer('l = [i for i in range(1000)]')
+>>> t1.timeit(number = 1000)
+>>> 0.027547000005142763
+```
+
+* 结论：至少就简单的实验来说，两者的差别非常小，timeit\(\)的结果可能更加均一，time\(\)会有一点波动，仅此而已
+
