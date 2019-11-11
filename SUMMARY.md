@@ -19,4 +19,5 @@
 * [CHIP-8 Emulator](chip-8-emulator.md)
 * [剑指Offer笔记](jian-zhi-offer-bi-ji.md)
 * [Python GUI programming](python-gui-programming.md)
+* [Frequency counter](frequency-counter.md)
 

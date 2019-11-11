@@ -31,13 +31,20 @@ sqrt\(\)这个函数就是一种过程抽象，用户无需知道如何计算一
 抽象数据结构就是组合基本的数据类型，并赋予它们一些特定的操作接口，来模拟一些更为复杂的数据形式。比如说，我们在Python中已经有了整数这个基础数据类型，但是并没有矢量这种类型。为了实现矢量的乘法，我们需要这样：
 
 ```python
-vectorA_x = 1vectorA_y = -1vectorB_x = -1vectorB_y = 1A_multi_B = vectorA_x * vectorB_x + vectorA_y * vectorB_y
+vectorA_x = 1
+vectorA_y = -1
+vectorB_x = -1
+vectorB_y = 1
+A_multi_B = vectorA_x * vectorB_x + vectorA_y * vectorB_y
 ```
 
 而我们期待可以实现这样的写法：
 
 ```python
-# 以下是意淫，实际是不能这样操作的vectorA = (1,1)vectorB = (-1,1)vectorA * vectorB # => 0
+# 以下是意淫，实际是不能这样操作的
+vectorA = (1,1)
+vectorB = (-1,1)
+vectorA * vectorB # => 0
 ```
 
 比较上面两种实现方法，前者不仅多了几行，更要命的是**由于不能重复使用**，每次建立新的矢量都需要反复定义反复手动计算，将使得计算程序变得非常冗长。这就是建立新的数据结构的必要性一种体现。
@@ -54,13 +61,16 @@ vectorA_x = 1vectorA_y = -1vectorB_x = -1vectorB_y = 1A_multi_B = vectorA_x * ve
 * 派生数据类型：list
 
 ```python
->>> myList = [1,2,3,True]>>> myList = [0] * 6>>> myList + otherList
+>>> myList = [1,2,3,True]
+>>> myList = [0] * 6
+>>> myList + otherList
 ```
 
 * range\(\)是一个常用的生成list的工具，range生成的数列包括头而不包括尾
 
 ```python
->>> list(range(0,5))[0,1,2,3,4]>>> list(range(5,10,2))[5,7,9]
+>>> list(range(0,5))[0,1,2,3,4]
+>>> list(range(5,10,2))[5,7,9]
 ```
 
 * String就是字符的list，很多操作方法都和list类似
@@ -69,25 +79,35 @@ vectorA_x = 1vectorA_y = -1vectorB_x = -1vectorB_y = 1A_multi_B = vectorA_x * ve
 * 最后就是dict型，同时包括keys和values，items则表示键值对。
 
 ```python
->>> phonenumb = {'david' : 1410, 'sarah' : 1137}>>> phonenumb.keys()dict_keys(['david','sarah'])
+>>> phonenumb = {'david' : 1410, 'sarah' : 1137}
+>>> phonenumb.keys()dict_keys(['david','sarah'])
 ```
 
 * I/O : print\(\)和input\(\)这两个基本函数。另外print存在格式输出的方法
 
 ```python
-print(aName, "is", age, "years old.")print("%s is %d years old." % (aName, age))# 以下是c语言中的输入输出写法printf("Area = %d.\n", area);scanf("Enter your r here : %d.\n",&r);
+print(aName, "is", age, "years old.")
+print("%s is %d years old." % (aName, age))
+# 以下是c语言中的输入输出写法
+printf("Area = %d.\n", area);
+scanf("Enter your r here : %d.\n",&r);
 ```
 
 * 控制结构\(if-else\)语句，循环\(for ... in list\)语句不再赘述。仅提一个生成list时用的技巧list comprehension:
 
 ```python
->>> square = [x*x for x in range(10)]>>> sqlist = [x*x for x in range(1,11) if x%2 != 0]
+>>> square = [x*x for x in range(10)]
+>>> sqlist = [x*x for x in range(1,11) if x%2 != 0]
 ```
 
 * 例外的处理。在程序运行过程中产生的run-time错误成为例外。在Python中可以事先在代码中准备好对例外的处理：
 
 ```python
->>> try:...   print(math.sqrt(-7))... except:   # <= 这里并不一定要指定error类型...   print("Bad Value for square root")>>> Bad Value for square root
+>>> try:
+...   print(math.sqrt(-7))
+... except:   # <= 这里并不一定要指定error类型...   
+print("Bad Value for square root")
+>>> Bad Value for square root
 ```
 
 * 函数的定义: def语句，不再赘述。
@@ -101,25 +121,44 @@ print(aName, "is", age, "years old.")print("%s is %d years old." % (aName, age))
 试想我们想建立一个可以表现分数的数据类型。Python固然已经有了小数类型在本质上和分数具有同样的功能，但是假设我们想要像分数一样实际操作数据的分数，分母，且让分数加减乘除运算式实际返回约分好的分数，这个时候就有必要建立一个新的数据类型。
 
 ```python
-# 建立新的类时用class关键字# __init__是特殊的构造函数，每次类被实例化时被呼叫# self是__init__函数必须要有的参数，因为观察下面的属性赋值语句左边，不可避免地要用到selfclass Fraction:    def __init__(self,top,bottom):        self.num = top        self.den = bottommyfraction = Fraction(3,5)  # <= 3/5
+# 建立新的类时用class关键字
+# __init__是特殊的构造函数，每次类被实例化时被呼叫
+# self是__init__函数必须要有的参数，因为观察下面的属性赋值语句左边，
+# 不可避免地要用到self
+class Fraction:    
+    def __init__(self,top,bottom):        
+        self.num = top        
+        self.den = bottom
+myfraction = Fraction(3,5)  # <= 3/5
 ```
 
 接下来我们从最简单的打印表示开始考虑Fraction这个类的操作接口。
 
 ```python
->>> myf = Fraction(3,5)>>> print(myf)<__main__.Fraction instance at 0x409b1acc>
+>>> myf = Fraction(3,5)
+>>> print(myf)
+<__main__.Fraction instance at 0x409b1acc>
 ```
 
 以上的代码说明，Python不知道如何来打印Fraction这个类的对象，因为我们并没有给出任何的打印方式，所以只能返回对象的地址。解决这个问题的第一招是自己来定义一个show方法：
 
 ```python
-def show(self):     print(self.num,"/",self.den)
+def show(self):     
+    print(self.num,"/",self.den)
 ```
 
 但是这样并不能达到让Python的print语句认识Fraction对象的目的。
 
 ```python
-...def __str__(self):    return str(self.num)+"/"+str(self.den) >>> myf = Fraction(3,5)>>> print(myf)3/5>>> print("I ate", myf, "of the pizza")I ate 3/5 of the pizza>>> myf.__str__()'3/5'   
+...def __str__(self):    
+    return str(self.num)+"/"+str(self.den) 
+>>> myf = Fraction(3,5)
+>>> print(myf)
+3/5
+>>> print("I ate", myf, "of the pizza")
+I ate 3/5 of the pizza
+>>> myf.__str__()
+'3/5'   
 ```
 
 \_\_str\_\_这个特殊函数在没有定义时，会自动返回对象的地址。现在我们按照上面的写法override之后，就可以正常打印分数了。
@@ -127,13 +166,19 @@ def show(self):     print(self.num,"/",self.den)
 接下来我们考虑如何实现分数的加法。现在如果我们不顾一切强行让Python加起两个分数：
 
 ```python
->>> f1 = Fraction(1,4)>>> f2 = Fraction(1,2)>>> f1+f2Traceback (most recent call last):  File "<pyshell#173>", line 1, in -toplevel-    f1+f2TypeError: unsupported operand type(s) for +:          'instance' and 'instance'
+>>> f1 = Fraction(1,4)
+>>> f2 = Fraction(1,2)
+>>> f1+f2
+Traceback (most recent call last):  File "<pyshell#173>", line 1, in -toplevel-    f1+f2TypeError: unsupported operand type(s) for +:          'instance' and 'instance'
 ```
 
 这个错误告诉我们，类似于print的问题，Python并不知道如何相加两个Fraction的对象。我们的解决方案也和前面类似，overide \_\_add\_\_这个方法：
 
 ```python
-def __add__(self,otherfraction):     newnum = self.num*otherfraction.den + self.den*otherfraction.num     newden = self.den * otherfraction.den     return Fraction(newnum,newden)     
+def __add__(self,otherfraction):     
+    newnum = self.num*otherfraction.den + self.den*otherfraction.num  
+    newden = self.den * otherfraction.den     
+    return Fraction(newnum,newden)     
 ```
 
 * 至此分数的数据模型例子就差不多了，主要讲述了
@@ -146,24 +191,65 @@ def __add__(self,otherfraction):     newnum = self.num*otherfraction.den + self.
 * 基本的逻辑门主要有两类，**binary和unary**，与门或门属于binary，而非门由于只有一个输入属于unary。在编写的层次上，计划一个基类LogicGate，下面有两个子类binary和unary，再下面各个具体的逻辑门种类。
 
 ```python
-class LogicGate():    def __init__(self,label):        self.label = label        self.output = None            def get_label(self):        return self.label        def get_output(self):        self.output = self.performLogic()        return self.output
+class LogicGate():    
+    def __init__(self,label):       
+        self.label = label
+        self.output = None
+    def get_label(self):        
+        return self.label        
+    def get_output(self):        
+        self.output = self.performLogic()        
+        return self.output
 ```
 
 * 上面的self.performLogic\(\)方法是用来根据输入计算输出的函数，这里并不需要写入LogicGate这个基础类中，可以**等到下面具体的逻辑门里再去实现，这是非常有用的一种构造技巧**。
 * 接下来就用继承的方法，从LogicGate出发写两个逻辑门的类型，需要注意的是继承的写法，以及构造方法中调用父类构造的方法。**这是一个固定的写法，每当继承父类时，子类中总是先呼叫父类的构造方法，然后接下去写自己的构造内容**
 
 ```python
-class binaryGate(LogicGate):    def __init__(self, label):        LogicGate.__init__(self, label)        self.pinA = None        self.pinB = None        def getPinA(self):        return int(input("Enter pin A for gate "+self.get_label() + "->"))            def getPinB(self):        return int(input("Enter pin B for gate "+self.get_label() + "->"))class UnaryGate(LogicGate):# 同上不再赘述
+class binaryGate(LogicGate):    
+    def __init__(self, label):        
+        LogicGate.__init__(self, label)        
+        self.pinA = None        
+        self.pinB = None        
+    def getPinA(self):        
+        return int(input("Enter pin A for gate "+self.get_label() + "->"))            
+    def getPinB(self):        
+        return int(input("Enter pin B for gate "+self.get_label() + "->"))
+
+class UnaryGate(LogicGate):# 同上不再赘述
 ```
 
 ```python
-class AndGate(BinaryGate):    def __init__(self,n):        super(AndGate,self).__init__(n)    def performGateLogic(self):        a = self.getPinA()        b = self.getPinB()        if a==1 and b==1:            return 1        else:            return 0            >>> g1 = AndGate("G1")>>> g1.getOutput()Enter Pin A input for gate G1-->1Enter Pin B input for gate G1-->00
+class AndGate(BinaryGate):    
+    def __init__(self,n):        
+        super(AndGate,self).__init__(n)    
+    def performGateLogic(self):        
+        a = self.getPinA()        
+        b = self.getPinB()        
+        if a==1 and b==1:            
+            return 1        
+        else:            
+            return 0            
+            
+>>> g1 = AndGate("G1")
+>>> g1.getOutput()
+Enter Pin A input for gate G1-->1
+Enter Pin B input for gate G1-->0
+0
 ```
 
 * 最后我们有一个connector的类，有get\_from和getTo两个功能，一旦前面的门被它连接，只要呼叫它的get\_From或者getTo，就可以获取前面或者后面的门的输入输出。
 
 ```python
-class Connector:    def __init__(self, fgate, tgate):        self.fromgate = fgate        self.togate = tgate        tgate.setNextPin(self)    def getFrom(self):        return self.fromgate    def getTo(self):        return self.togate
+class Connector:    
+    def __init__(self, fgate, tgate):        
+        self.fromgate = fgate        
+        self.togate = tgate        
+        tgate.setNextPin(self)    
+    def getFrom(self):        
+        return self.fromgate    
+    def getTo(self):        
+        return self.togate
 ```
 
 ### Ch2. A proper class
@@ -177,31 +263,47 @@ class Connector:    def __init__(self, fgate, tgate):        self.fromgate = fga
 * 为什么要分析算法？为了定量比较不同算法的好坏。程序的好坏有很多指标，比如易读性，速度，空间占用等。这里我们先考虑的是执行时间。比如说有一个求N项和的函数sumofN2\(n\):
 
 ```python
-import timedef sumOfN2(n):   start = time.time()   theSum = 0   for i in range(1,n+1):      theSum = theSum + i   end = time.time()   return theSum,end-start
+import time
+def sumOfN2(n):   
+    start = time.time()   
+    theSum = 0   
+    for i in range(1,n+1):      
+        theSum = theSum + i   
+    end = time.time()   
+    return theSum,end-start
 ```
 
 我们在命令行中将其执行10000次：
 
 ```python
->>>for i in range(5):       print("Sum is %d required %10.7f seconds"%sumOfN(10000))Sum is 50005000 required  0.0018950 seconds
+>>>for i in range(5):       
+print("Sum is %d required %10.7f seconds"%sumOfN(10000))
+Sum is 50005000 required  0.0018950 seconds
 ```
 
 再试试将其执行100000次：
 
 ```python
->>>for i in range(5):       print("Sum is %d required %10.7f seconds"%sumOfN(100000))Sum is 5000050000 required  0.0199420 seconds
+>>>for i in range(5):       
+print("Sum is %d required %10.7f seconds"%sumOfN(100000))
+Sum is 5000050000 required  0.0199420 seconds
 ```
 
 可以看到执行时间增长了10倍！现在假设我们有一个不同的函数，用求和公式求和：
 
 ```python
-def sumOfN3(n):   return (n*(n+1))/2print(sumOfN3(10))
+def sumOfN3(n):   
+    return (n*(n+1))/2print(sumOfN3(10))
 ```
 
 对这个程序进行测量的结果当然是：
 
 ```python
-Sum is 50005000 required 0.00000095 secondsSum is 5000050000 required 0.00000191 secondsSum is 500000500000 required 0.00000095 secondsSum is 50000005000000 required 0.00000095 secondsSum is 5000000050000000 required 0.00000119 seconds
+Sum is 50005000 required 0.00000095 seconds
+Sum is 5000050000 required 0.00000191 seconds
+Sum is 500000500000 required 0.00000095 seconds
+Sum is 50000005000000 required 0.00000095 seconds
+Sum is 5000000050000000 required 0.00000119 seconds
 ```
 
 无论你执行多少次，花费的时间都是类似的。以上这些直接benchmark的方法固然给了我们对于程序性能的一定理解，但是这些计测都是依赖于特定的硬件环境，一旦硬件不同，结果也会相应改变，从而使得比较程序变得困难。因此这里开始引出big-O表示法的概念。
@@ -212,30 +314,47 @@ Sum is 50005000 required 0.00000095 secondsSum is 5000050000 required 0.00000191
 * * 用time\(\)函数计测开始及结束时间（最简单直观，但是受到的影响较多）
 
 ```python
-import timestart = time.time()l = []for i in range(10000):    l.append(i)print(time.time() - start) # time返回的结果单位是second
+import time
+start = time.time()
+l = []for i in range(10000):    
+    l.append(i)print(time.time() - start) # time返回的结果单位是second
 ```
 
 * 使用timeit模块里的Timer类
 
 ```python
-def test1():   ...// Timer也是timeit里的一个类；使用时第一个参数是执行语句，第二个是setup语句t1 = Timer("test1()", "from __main__ import test1") print("Test",t1.timeit(number=1000), "milliseconds")
+def test1():   
+    ...
+// Timer也是timeit里的一个类；使用时第一个参数是执行语句，第二个是setup语句
+t1 = Timer("test1()", "from __main__ import test1") 
+print("Test",t1.timeit(number=1000), "milliseconds")
 ```
 
 * 在命令行用timeit模块
 
 ```bash
-$ python -m timeit -s "setup" "statement"# timeit会自动把statement跑1000000次（默认），然后给你一个usec的数值
+$ python -m timeit -s "setup" "statement"
+# timeit会自动把statement跑1000000次（默认），然后给你一个usec的数值
 ```
 
 * 注意到timeit模块会要求你给出setup语句，其中需要from \_\_main\_\_ import。。。这其中的原因是，**timeit会自动建立一个空白的namespace防止现有space影响其计测结果**。也是因此你需要明确指示timeit应该要import哪些模块。
 * time\(\)和timeit\(\)的比较：timeit\(\)应该来说更加准确，但是准确多少呢？我准备了如下一个s小实验：
 
 ```python
-import timedef test1():    start = time.time()    for i in range(1000):        l = [i for i in range(1000)]    return (time.time()-start)print(test1())    # => 0.026647329330444336
+import time
+def test1():    
+    start = time.time()    
+    for i in range(1000):        
+        l = [i for i in range(1000)]    
+        return (time.time()-start)
+print(test1())    # => 0.026647329330444336
 ```
 
 ```python
->>> from timeit import Timer>>> t1 = Timer('l = [i for i in range(1000)]')>>> t1.timeit(number = 1000)>>> 0.027547000005142763
+>>> from timeit import Timer
+>>> t1 = Timer('l = [i for i in range(1000)]')
+>>> t1.timeit(number = 1000)
+>>> 0.027547000005142763
 ```
 
 * 结论：至少就简单的实验来说，两者的差别非常小，timeit\(\)的结果可能更加均一，time\(\)会有一点波动，仅此而已

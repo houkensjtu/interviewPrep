@@ -162,7 +162,7 @@ same([1,1,2], [4,1,1]) -> true
 // 4. If found, delete that element from the second array
 ```
 
-* Used function : **arr.indexof\(\), arr.splice\(\)**
+* Used function : **arr.indexOf\(\), arr.splice\(\)**
 * A better solution \(O\(n\)\):
 
 ```javascript
