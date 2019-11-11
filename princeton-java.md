@@ -12,7 +12,21 @@
 > 3. Built-in data types
 
 ```text
-Data type = Value + Behavior (operation)- char- int : add, subtract, multiply, divide...- String : concanate- double : same as int- boolean : and(&&), or(||), not(!)Some basic Java API:- void System.out.println(String s)- int Integer.parseInt(String s)- double Double.parseDouble(String s)- double Math.abs(double a)- long Math.round(double a)- double Math.E- double Math.PI
+Data type = Value + Behavior (operation)
+- char
+- int : add, subtract, multiply, divide...
+- String : concanate
+- double : same as int
+- boolean : and(&&), or(||), not(!)
+
+Some basic Java API:
+- void System.out.println(String s)
+- int Integer.parseInt(String s)
+- double Double.parseDouble(String s)
+- double Math.abs(double a)
+- long Math.round(double a)
+- double Math.E
+- double Math.PI
 ```
 
 1. Key language syntax :baby\_chick::
@@ -26,21 +40,61 @@ Data type = Value + Behavior (operation)- char- int : add, subtract, multiply, d
    // 简单的输入 int c = Integer.parseInt\(args\[0\]\); int d = Integer.parseInt\(args\[1\]\); System.out.println\(c\); System.out.println\(d\); } }
 
 ```text
-### Lecture 2: CONDITIONALS AND LOOPSConditionals and loops enable us to do more complex control flows.1. The if statement    ```Java    // Absolute value    if (x<0) {         x = -x;     }
+### Lecture 2: CONDITIONALS AND LOOPS
+Conditionals and loops enable us to do more complex control flows.
+1. The if statement
+    ```Java
+    // Absolute value
+    if (x<0) { 
+        x = -x; 
+    }
 ```
 
 ```java
-    // Maximum    if (x>y) {        max = x;     }     else {        max = y;    }
+    // Maximum
+    if (x>y) {
+        max = x; 
+    } 
+    else {
+        max = y;
+    }
 ```
 
 ```java
-    // Use if statement to build a simple two-number sort    public class twoSort{        public static void main(String[] args)        {            int a = Integer.parseInt(args[0]);            int b = Integer.parseInt(args[1]);            if (a>b){                int t = a;                a = b;                b = t;            }            System.out.println(a,b);        }    }
+    // Use if statement to build a simple two-number sort
+    public class twoSort{
+        public static void main(String[] args)
+        {
+            int a = Integer.parseInt(args[0]);
+            int b = Integer.parseInt(args[1]);
+
+            if (a>b){
+                int t = a;
+                a = b;
+                b = t;
+            }
+            System.out.println(a,b);
+        }
+    }
 ```
 
 1. The while statement
 
    ```java
-    public class powerOfTwo{     public static main(String[] args)     {         int n = Integer.parseInt(args[0]);         int v = 1;         int i = 0;         while ( i<= n)         {             System.out.println(v);             i = i + 1;             v = 2 * v;         }     } }
+    public class powerOfTwo{
+        public static main(String[] args)
+        {
+            int n = Integer.parseInt(args[0]);
+            int v = 1;
+            int i = 0;
+            while ( i<= n)
+            {
+                System.out.println(v);
+                i = i + 1;
+                v = 2 * v;
+            }
+        }
+    }
    ```
 
    * Newton-Raphson method to compute square root.
@@ -48,7 +102,10 @@ Data type = Value + Behavior (operation)- char- int : add, subtract, multiply, d
 2. The for loop
 
    ```java
-    int sum = 0; for (int i = 1; i <= N; i++)     sum += i; System.out.println(sum);
+    int sum = 0;
+    for (int i = 1; i <= N; i++)
+        sum += i;
+    System.out.println(sum);
    ```
 
    * Every for loop has an equivalent of while loop.
@@ -64,7 +121,10 @@ The first data structure in this course. 1. What is data structure?
 A data structure is an arrangement of data that enables efficient processing by a program.
 
 ```java
-   double[] a;   a = new double[10000];   a[0] = 1;   a[1] = 2;
+   double[] a;
+   a = new double[10000];
+   a[0] = 1;
+   a[1] = 2;
 ```
 
 1. Critical concepts
@@ -74,7 +134,25 @@ A data structure is an arrangement of data that enables efficient processing by 
 2. Java built-in support feature for arrays
 
    ```java
-   // Declare an array.double[] a;// Create an array of fixed size.a = new double[10];// Refer to the length of the array.a.length;// Compact intialization.double[] a = new double[100];// Initialize with values.double[] x = {0.1, 0.6, 0.8};// Copy an array.double[] b = new double[100];for(int i = 0; i<a.length; i++)    b[i] = a[i];
+   // Declare an array.
+   double[] a;
+
+   // Create an array of fixed size.
+   a = new double[10];
+
+   // Refer to the length of the array.
+   a.length;
+
+   // Compact intialization.
+   double[] a = new double[100];
+
+   // Initialize with values.
+   double[] x = {0.1, 0.6, 0.8};
+
+   // Copy an array.
+   double[] b = new double[100];
+   for(int i = 0; i<a.length; i++)
+       b[i] = a[i];
    ```
 
 3. Examples of array processing
@@ -84,13 +162,38 @@ A data structure is an arrangement of data that enables efficient processing by 
 5. Declare and initialize.
 
    ```java
-    double[][] a; a = new double[100][100]; a[i][j] = b[i][k] * c[k][j]; // Refer to number of rows. a.length; // Refer to number of columns. a[i].length; // Refer to row i. a[i]; // Initialize. double[][] a = new double[100][100]; double[][] a = {{..., ..., ..., ...},                 {..., ..., ..., ...},                 ...                };
+    double[][] a;
+    a = new double[100][100];
+    a[i][j] = b[i][k] * c[k][j];
+
+    // Refer to number of rows.
+    a.length;
+
+    // Refer to number of columns.
+    a[i].length;
+
+    // Refer to row i.
+    a[i];
+
+    // Initialize.
+    double[][] a = new double[100][100];
+    double[][] a = {{..., ..., ..., ...},
+                    {..., ..., ..., ...},
+                    ...
+                   };
    ```
 
 6. Applications : Vector and matrice.
 
    ```java
-    double[] c = new double[N]; for(int i=0; i < N; i++)     c[i] = a[i] + b[i]; double[][] = new double[N][N]; for(int i = 0; i < N; i++)     for(int j = 0; j < N; j++)         c[i][j] = a[i][j] + b[i][j];
+    double[] c = new double[N];
+    for(int i=0; i < N; i++)
+        c[i] = a[i] + b[i];
+
+    double[][] = new double[N][N];
+    for(int i = 0; i < N; i++)
+        for(int j = 0; j < N; j++)
+            c[i][j] = a[i][j] + b[i][j];
    ```
 
 #### Lecture 4: Standard input and output
@@ -133,13 +236,36 @@ Capable of taking infinite data from a stream \(or file\) instead of taking smal
 public class playThatTone{ public static double\[\] tone\(double hz, double duration\){ int N = \(int\) \(44100  _duration\); double\[\] a = new double\[N+1\]; for \(int i=0; i &lt; N; i++\){ a\[i\] = Math.sin\(2_  Math.PI  _i_  hz / 44100\); } return a; }
 
 ```text
-public static void main(String[] args){    double hz = Double.parseDouble(args[0]);    double duration = Double.parseDouble(args[1]);    double[] a = tone(hz,duration);    StdAudio.play(a);}
+public static void main(String[] args){
+    double hz = Double.parseDouble(args[0]);
+    double duration = Double.parseDouble(args[1]);
+
+    double[] a = tone(hz,duration);
+
+    StdAudio.play(a);
+}
 ```
 
 }
 
 ```text
-Bottom line : You can write program to manipulate sound.3. Case study 2 : Gaussian distribution (DIY library)    - Function can be defined with same name and different number of arguments.```Java// This is a diy Gaussian function library.public class Gaussian{    public static double pdf(double z){        ...;    }    public static double pdf(double z, double mu, double sigma){        ...;    }    public static void main(String[] args){        // Put some test code here...    }}
+Bottom line : You can write program to manipulate sound.
+
+3. Case study 2 : Gaussian distribution (DIY library)
+    - Function can be defined with same name and different number of arguments.
+```Java
+// This is a diy Gaussian function library.
+public class Gaussian{
+    public static double pdf(double z){
+        ...;
+    }
+    public static double pdf(double z, double mu, double sigma){
+        ...;
+    }
+    public static void main(String[] args){
+        // Put some test code here...
+    }
+}
 ```
 
 * And it's good practice to include some test code in the main function of the library.
@@ -156,7 +282,20 @@ Bottom line : You can write program to manipulate sound.3. Case study 2 : Gaussi
 7. _The structure of recursion:_ 1. Base case : return sth. for a small N. 2. Reduction step : assume that the function for small N works, then figure out a way to compute for large N.
 
    ```java
-   public class integerToBinary{    public static String convert (int N){        // Base case        if (N == 1) return "1";        // Reduction step        return convert(N/2) + (N % 2);    }    public static void main (String[] args){        int N = Integer.parseInt(args[0]);        System.out.println(convert(N));    }}
+   public class integerToBinary{
+       public static String convert (int N){
+           // Base case
+           if (N == 1) return "1";
+
+           // Reduction step
+           return convert(N/2) + (N % 2);
+       }
+
+       public static void main (String[] args){
+           int N = Integer.parseInt(args[0]);
+           System.out.println(convert(N));
+       }
+   }
    ```
 
    _Proof_ In the example, assume convert\(\) works for N/2, if N is odd then append "1", or if N is even, append "0".
@@ -168,7 +307,18 @@ Bottom line : You can write program to manipulate sound.3. Case study 2 : Gaussi
 8. Some more classic examples 1. Ruler function
 
    ```java
-   public class Ruler {   public static String ruler(int N)   {      if (N=0) return " ";      return ruler(N-1) + n + ruler(N-1);   }   public static void main(String[] args)   {       int N = Integer.parseInt(args[0]);       System.out.println(ruler(N));   }}
+   public class Ruler {
+      public static String ruler(int N)
+      {
+         if (N=0) return " ";
+         return ruler(N-1) + n + ruler(N-1);
+      }
+      public static void main(String[] args)
+      {
+          int N = Integer.parseInt(args[0]);
+          System.out.println(ruler(N));
+      }
+   }
    ```
 
    Observation : ruler\(1\) calls ruler\(0\) twice, ruler calls ruler\(1\) twice, so 2x2 it calls 4 ruller, and so on.
@@ -176,7 +326,18 @@ Bottom line : You can write program to manipulate sound.3. Case study 2 : Gaussi
 9. Hanoi tower puzzle
 
    ```java
-   public class Hanoi{ public static String move(int N) {     if (N==1) return N + "R";     return move(N-1) + N + "L" + move(N-1); } public static void main(String[] args) {     int N = Integer.parseInt(args[0]);     System.out.println(move(N)); }}
+   public class Hanoi{
+    public static String move(int N)
+    {
+        if (N==1) return N + "R";
+        return move(N-1) + N + "L" + move(N-1);
+    }
+    public static void main(String[] args)
+    {
+        int N = Integer.parseInt(args[0]);
+        System.out.println(move(N));
+    }
+   }
    ```
 
    Observation : Why call move\(n-1\) twice? Because to move the whole tower, you have to move the n-1 tower once to the right, move the nth disk left, and move the n-1 tower again to the right, that will complete the movement.
@@ -196,20 +357,47 @@ Will I be able to use my program to solve a large practical problem? If _not_, h
 * An algorithm challenge: three sum proble: Given N numbers, count the triples that sum to 0.
 
 ```java
-public class threesum{   public static int count(int[] a){      int N = a.length;      int cnt = 0;      // Keep i<j<k to avoid repeating.      for (int i=0; i<N; i++)         for (int j=i; j<N; j++)            for (int k=j; k<N; k++)               if(a[i]+a[j]+a[k]==0)                  cnt++;      return cnt;   }   public static void main(String[] args){      int[] a = StdIn.readAllInts();      StdOut.println(count(a));   }}
+public class threesum{
+   public static int count(int[] a){
+      int N = a.length;
+      int cnt = 0;
+      // Keep i<j<k to avoid repeating.
+      for (int i=0; i<N; i++)
+         for (int j=i; j<N; j++)
+            for (int k=j; k<N; k++)
+               if(a[i]+a[j]+a[k]==0)
+                  cnt++;
+      return cnt;
+   }
+   public static void main(String[] args){
+      int[] a = StdIn.readAllInts();
+      StdOut.println(count(a));
+   }
+}
 ```
 
 1. Empirical analysis
 2. a first step in analyzing run time: Collecting sample data \(actual or artificial\)
 
 ```java
-public class Generator{    public static void main(String[] args){        int M = Integer.parseInt(args[0]);        int N = Integer.parseInt(args[1]);        for (int i=0; i<N; i++)           StdOut.println(StdRandom.uniform(-M,M));    }}
+public class Generator{
+    public static void main(String[] args){
+        int M = Integer.parseInt(args[0]);
+        int N = Integer.parseInt(args[1]);
+
+        for (int i=0; i<N; i++)
+           StdOut.println(StdRandom.uniform(-M,M));
+    }
+}
 ```
 
 * Measuring run time:
 
   ```java
-  double start = System.currentTimeMillis() / 1000.0;int cnt = count(a);double now   = System.currentTimeMillis() / 1000.0;StdOut.printf("%d (%.0f seconds\n", cnt, now-start);
+  double start = System.currentTimeMillis() / 1000.0;
+  int cnt = count(a);
+  double now   = System.currentTimeMillis() / 1000.0;
+  StdOut.printf("%d (%.0f seconds\n", cnt, now-start);
   ```
 
 * Mathematicl model
@@ -219,7 +407,15 @@ public class Generator{    public static void main(String[] args){        int M 
 * A warm-up example: 1-sum
 
   ```java
-  public static int count(int[] a){  int N = a.length;  int cnt = 0;  for (int i = 0; i<N; i++){      if (count[i]==0)          cnt++  }  return cnt;}
+  public static int count(int[] a){
+    int N = a.length;
+    int cnt = 0;
+    for (int i = 0; i<N; i++){
+        if (count[i]==0)
+            cnt++
+    }
+    return cnt;
+  }
   ```
 
 * Breakdown of the running time of each operation:
@@ -265,20 +461,55 @@ public class Generator{    public static void main(String[] args){        int M 
 10. How to apply operations on the object.
 
 ```java
-String s;s = new String("Hello!");Stdout.Println(s.substring(0,5));
+String s;
+s = new String("Hello!");
+Stdout.Println(s.substring(0,5));
 ```
 
 * Quiz : What is ADT? Answer: it's a data type whose implemention is hidden from the client.
 * Using the Color ADT
 
 ```java
-public class Color{    ...;}// Constructor Color(int r, int g, int b);int getRed();int getBlue();int getGreen();...
+public class Color{
+    ...;
+}
+
+// Constructor 
+Color(int r, int g, int b);
+int getRed();
+int getBlue();
+int getGreen();
+...
 ```
 
 * Example : Alber's color square.
 
 ```java
-public class AlberSquare{    public static void main(String[] args){        int r1 = Integer.parseInt(args[0]);        int g1 = Integer.parseInt(args[1]);        int b1 = Integer.parseInt(args[2]);        Color c1 = new Color(r1,g1,b1);        int r2 = Integer.parseInt(args[3]);        int g2 = Integer.parseInt(args[4]);        int b2 = Integer.parseInt(args[5]);        Color c2 = new Color(r2,g2,b2);        StdDraw.setPenColor(c1);        StdDraw.filledSquare(.25,.5,.2);        StdDraw.setPenColor(c2);        StdDraw.filledSquare(.75,.5,.2);        StdDraw.setPenColor(c2);        StdDraw.filledSquare(.25,.5,.1);        StdDraw.setPenColor(c1);        StdDraw.filledSquare(.75,.5,.1);    }}
+public class AlberSquare{
+    public static void main(String[] args){
+        int r1 = Integer.parseInt(args[0]);
+        int g1 = Integer.parseInt(args[1]);
+        int b1 = Integer.parseInt(args[2]);
+        Color c1 = new Color(r1,g1,b1);
+
+        int r2 = Integer.parseInt(args[3]);
+        int g2 = Integer.parseInt(args[4]);
+        int b2 = Integer.parseInt(args[5]);
+        Color c2 = new Color(r2,g2,b2);
+
+        StdDraw.setPenColor(c1);
+        StdDraw.filledSquare(.25,.5,.2);
+
+        StdDraw.setPenColor(c2);
+        StdDraw.filledSquare(.75,.5,.2);
+
+        StdDraw.setPenColor(c2);
+        StdDraw.filledSquare(.25,.5,.1);
+
+        StdDraw.setPenColor(c1);
+        StdDraw.filledSquare(.75,.5,.1);
+    }
+}
 ```
 
 * Sample output:
@@ -310,7 +541,35 @@ Convert an image to grey scale; scale up or down an image. \(Image is an array o
 In Java, a data-type implementation is known as a Class.
 
 ```java
-public class Charge{    private final double rx, ry;    private final double q;    // Constructor    public Charge(double x0, double y0, double q0){        rx = x0;        ry = y0;        q = q0;    }    // Methods    public double potentialAt(double x, double y){        double k = 8.99e09;        double dx = x - rx;        double dy = y - ry;        return k * q / Math.sqrt(dx*dx + dy*dy)    }    public String toString()    {   return q + " at " + "(" + rx + ", " + ry +")"; }    // Main (as a test client)    public static void main(String[] args){        Charge c = new Charge(.72, .31, 21.3);        StdOut.println(c);        StdOut.printf("%6.2e\n", c.potentialAt(.42, .71));    }}
+public class Charge{
+
+    private final double rx, ry;
+    private final double q;
+
+    // Constructor
+    public Charge(double x0, double y0, double q0){
+        rx = x0;
+        ry = y0;
+        q = q0;
+    }
+
+    // Methods
+    public double potentialAt(double x, double y){
+        double k = 8.99e09;
+        double dx = x - rx;
+        double dy = y - ry;
+        return k * q / Math.sqrt(dx*dx + dy*dy)
+    }
+    public String toString()
+    {   return q + " at " + "(" + rx + ", " + ry +")"; }
+
+    // Main (as a test client)
+    public static void main(String[] args){
+        Charge c = new Charge(.72, .31, 21.3);
+        StdOut.println(c);
+        StdOut.printf("%6.2e\n", c.potentialAt(.42, .71));
+    }
+}
 ```
 
 1. The point charge data type
@@ -326,7 +585,15 @@ Modifiers:
 Constructor:
 
 ```java
-public class Charge{    ...    public Charge(double x0, double y0, double q0){        rx = x0;        ry = y0;        q  = q0;    }    ...}
+public class Charge{
+    ...
+    public Charge(double x0, double y0, double q0){
+        rx = x0;
+        ry = y0;
+        q  = q0;
+    }
+    ...
+}
 ```
 
 1. Turtle graphics
@@ -408,7 +675,15 @@ public class Charge{    ...    public Charge(double x0, double y0, double q0){  
 28. An example in Python:
 
 ```python
-def square(x):  return x*xdef table(f,sequence):  for x in sequence:     print(x)     print(f(x))table(square,range(10))
+def square(x):
+  return x*x
+
+def table(f,sequence):
+  for x in sequence:
+     print(x)
+     print(f(x))
+
+table(square,range(10))
 ```
 
 * Why learn functional programming?

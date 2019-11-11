@@ -14,47 +14,100 @@
 * 好的代码都会整理成严谨而清晰的结构，没有好的结构划分，代码就会好像房间里散乱的东西，乱七八糟。比如下面的例子
 
 ```c
-if (...) {  if (...) {    ...  } else {    ...  }} else if (...) {  ...} else {  ...}
+if (...) {
+  if (...) {
+    ...
+  } else {
+    ...
+  }
+} else if (...) {
+  ...
+} else {
+  ...
+}
 ```
 
 * 代码模块化。并不是表面意义上的把代码分开就好，而是要定义尽量简洁的函数接口和函数功能。每个函数都不应该实现过多过于复杂的功能。**作者的标准是不超过40行**，因为电脑屏幕通常只能显示50行，而40行正好可以不转动眼球一眼扫到。
 * 避免全局变量，避免用对象属性来传递信息。考察下面的例子：
 
 ```java
- class A {   String x;   void findX() {      ...      x = ...;   }   void foo() {     findX();     ...     print(x);   } }
+ class A {
+   String x;
+
+   void findX() {
+      ...
+      x = ...;
+   }
+
+   void foo() {
+     findX();
+     ...
+     print(x);
+   }
+ }
 ```
 
 这里x成为了对象内部的一个数据通道，findX\(\)修改计算x的值，foo\(\)来进行对x的输出，两个函数都**依赖于x这个对象属性**，从而使得函数失去了明确的接口。下面的例子通过把x局部化，就解开了这种耦合，当然也不再需要依赖于对象属性：
 
 ```java
- String findX() {    ...    x = ...;    return x; } void foo() {   String x = findX();   print(x); }
+ String findX() {
+    ...
+    x = ...;
+    return x;
+ }
+ void foo() {
+   String x = findX();
+   print(x);
+ }
 ```
 
 * 一些改善代码可读性的tips，好的代码往往不需要大量注释，而是不言自明
 * * 使用有意义的函数名和变量名，使得代码意图清晰
 
 ```c
-// put elephant1 into fridge2 <= 由于名字清晰，这样的注释其实可以省略put(elephant1, fridge2);
+// put elephant1 into fridge2 <= 由于名字清晰，这样的注释其实可以省略
+put(elephant1, fridge2);
 ```
 
 * * 让变量名接近调用的地方，避免让读者反复寻找变量的定义和使用
 
 ```c
-void foo() {  ...  ...  int index = ...;  bar(index);  ...}
+void foo() {
+  ...
+  ...
+  int index = ...;
+  bar(index);
+  ...
+}
 ```
 
 * * 局部变量名不要太长，而且因为有了上面的写法帮助，应该借助上下文可以理解变量含义
 * 把复杂的表达式转化为中间变量，避免过长的调用
 
 ```java
-Pizza pizza = makePizza(crust(salt(), butter()),   topping(onion(), tomato(), sausage()));   Crust crust = crust(salt(), butter());Topping topping = topping(onion(), tomato(), sausage());Pizza pizza = makePizza(crust, topping);
+Pizza pizza = makePizza(crust(salt(), butter()),
+   topping(onion(), tomato(), sausage()));
+   
+Crust crust = crust(salt(), butter());
+Topping topping = topping(onion(), tomato(), sausage());
+Pizza pizza = makePizza(crust, topping);
 ```
 
 * 合理利用换行，缩进让代码美观易懂，这一点在marycore里面有更加详尽的研究了
 * 写直观的代码，避免复杂逻辑，哪怕是一点点。比如下面这个复合逻辑表达式，你每次看，都需要思考一下，这个逻辑到底是干嘛？
 
 ```java
-// 利用了逻辑运算符短路特性的巧妙写法，但是让人难以理解if (action1() || action2() && action3()) {  ...}// 笨但是清晰的写法if (!action1()) {  if (action2()) {    action3();  }}
+// 利用了逻辑运算符短路特性的巧妙写法，但是让人难以理解
+if (action1() || action2() && action3()) {
+  ...
+}
+
+// 笨但是清晰的写法
+if (!action1()) {
+  if (action2()) {
+    action3();
+  }
+}
 ```
 
 * 尽量覆盖corner case，不要省略if语句对应的else语句

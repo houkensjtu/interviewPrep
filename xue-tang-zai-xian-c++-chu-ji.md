@@ -62,7 +62,11 @@
 * 变量和常量的初始化：
 
 ```cpp
-int a = 0;int a(0);  // <= 这个初始化写法比较奇怪int a = {0};const float pi = 3.1415;
+int a = 0;
+int a(0);  // <= 这个初始化写法比较奇怪
+int a = {0};
+
+const float pi = 3.1415;
 ```
 
 #### 各类基础运算符
@@ -79,13 +83,19 @@ x = a>b?a:b;
 * sizeof运算，**为什么要用sizeof求数据大小呢**？因为数据在不同机器上的时候，**字节数是可能不同的**
 
 ```cpp
-sizeof(int);sizeof x; // 求变量的大小，不加括号
+sizeof(int);
+sizeof x; // 求变量的大小，不加括号
 ```
 
 * 位运算符：&,\|,^。用来把直接操作数据的位，比如说可以实现把数据的某个位置0，置1。
 
 ```text
-c = a & 0xFF; // 取出最低8位c = a | 0xFF; // 最低8位全部置1c = a ^ 0xFF; // 最低8位翻转c = ~a;       // 全部翻转a >> 1;       // 高位是0补0，是1补1a << 1;       // 低位补0
+c = a & 0xFF; // 取出最低8位
+c = a | 0xFF; // 最低8位全部置1
+c = a ^ 0xFF; // 最低8位翻转
+c = ~a;       // 全部翻转
+a >> 1;       // 高位是0补0，是1补1
+a << 1;       // 低位补0
 ```
 
 * 类型转换：explicit, implicit; 上面这些基本运算都**要求两边数据类型一致**，如果不一致，**默认的行为就是把低类型转换成高类型**
@@ -93,7 +103,9 @@ c = a & 0xFF; // 取出最低8位c = a | 0xFF; // 最低8位全部置1c = a ^ 0x
 * explicit类型转换语法：
 
 ```cpp
-(int) f;int (f);  static_cast<int>(f); // C++风格的类型转换
+(int) f;
+int (f);  
+static_cast<int>(f); // C++风格的类型转换
 ```
 
 ## 第三章 C++简单程序设计（二）
@@ -105,7 +117,11 @@ c = a & 0xFF; // 取出最低8位c = a | 0xFF; // 最低8位全部置1c = a ^ 0x
 * **插入运算符&lt;&lt;，作用在输出流对象cout上**，就可以实现标准输出功能。
 
 ```cpp
-int a, b;cin >> a >> b;// I/O流类库的操作符cout << setw(5) << setprecision(3) << 3.1415926;
+int a, b;
+cin >> a >> b;
+
+// I/O流类库的操作符
+cout << setw(5) << setprecision(3) << 3.1415926;
 ```
 
 #### if语句
@@ -113,13 +129,46 @@ int a, b;cin >> a >> b;// I/O流类库的操作符cout << setw(5) << setprecisio
 * if语句的单选择，双选择，多重选择
 
 ```cpp
-if (x > y) cout << x;if (x > y)   cout << x;else   cout << y;  if (expr1)  statement1;else if (expr2)  statement2;...else  statementn;
+if (x > y) cout << x;
+
+if (x > y) 
+  cout << x;
+else 
+  cout << y;
+  
+if (expr1)
+  statement1;
+else if (expr2)
+  statement2;
+...
+else
+  statementn;
+
 ```
 
 #### switch语句
 
 ```cpp
-#include <iostream>using namespace std;int main(){  int n;  cout << "Enter a number" << endl;  cin >> n;  switch(n){  case 0:    cout << "Sunday" << endl;    break;  // <= break是必须的  case 1:    cout << "Monday" << endl;    break;  case 2:    cout << "Tuesday" << endl;    break;    ...  }}
+#include <iostream>
+using namespace std;
+int main()
+{
+  int n;
+  cout << "Enter a number" << endl;
+  cin >> n;
+  switch(n){
+  case 0:
+    cout << "Sunday" << endl;
+    break;  // <= break是必须的
+  case 1:
+    cout << "Monday" << endl;
+    break;
+  case 2:
+    cout << "Tuesday" << endl;
+    break;  
+  ...
+  }
+}
 ```
 
 * 注意在switch结构中，break是必须的，不然会自动falldown执行所有下面的语句
@@ -132,7 +181,15 @@ if (x > y) cout << x;if (x > y)   cout << x;else   cout << y;  if (expr1)  state
 #### typedef关键字
 
 ```cpp
-typedef double Area;using Area = double;enum Weekday {sun, mon, tue, wed, thu, fri, sat};// 默认情况下sun = 0, mon = 1, tue = 2...enum Weekday {sun = 7, mon = 1, tue, wed, thu, fri, sat};auto var1 = var2 + var3;// var1的类型会自动由后面表达式的类型决定
+typedef double Area;
+using Area = double;
+
+enum Weekday {sun, mon, tue, wed, thu, fri, sat};
+// 默认情况下sun = 0, mon = 1, tue = 2...
+enum Weekday {sun = 7, mon = 1, tue, wed, thu, fri, sat};
+
+auto var1 = var2 + var3;
+// var1的类型会自动由后面表达式的类型决定
 ```
 
 ## 第四章 函数
@@ -145,7 +202,13 @@ typedef double Area;using Area = double;enum Weekday {sun, mon, tue, wed, thu, f
 * 函数调用：在调用之前必须要声明函数原型（函数定义在别的文件中，或者函数定义在调用之后）。
 
 ```cpp
-double power (double x, int n){  double val = 1.0;  while (n--)    val *= x;  return val;}
+double power (double x, int n)
+{
+  double val = 1.0;
+  while (n--)
+    val *= x;
+  return val;
+}
 ```
 
 #### 内联函数
@@ -153,7 +216,21 @@ double power (double x, int n){  double val = 1.0;  while (n--)    val *= x;  re
 内联函数关键字inline：节省参数传递，控制转移等计算开销。内联函数不能有循环语句，函数定义必须在调用之前。编译器的优化会自动选择在编译时要不要转换成inline函数，因此定义未必100%有效。
 
 ```cpp
-#include <iostream>using namespace std;inline double area(double r){  return 3.14*r*r;}int main(){  double r = 3.0;  double a = area(r);  cout << a << endl;  return 0;}
+#include <iostream>
+using namespace std;
+
+inline double area(double r)
+{
+  return 3.14*r*r;
+}
+
+int main()
+{
+  double r = 3.0;
+  double a = area(r);
+  cout << a << endl;
+  return 0;
+}
 ```
 
 #### 嵌套与递归
@@ -162,19 +239,45 @@ double power (double x, int n){  double val = 1.0;  while (n--)    val *= x;  re
 * 递归：自己呼叫自己的过程
 
 ```cpp
-unsigned fac(unsigned n){  unsigned f;  if (n==0) return 1;  else     f = n * fac(n-1);  return f;}
+unsigned fac(unsigned n)
+{
+  unsigned f;
+  if (n==0) return 1;
+  else 
+    f = n * fac(n-1);
+  return f;
+}
 ```
 
 * 典型递归例题：从n个人当中选出k个人作为委员会，有多少种选法？
 
 ```cpp
-int selection(int n, int k){  if (k==1)    return (n - k + 1);  else    return n / k * selection(n-1, k-1);}
+int selection(int n, int k)
+{
+  if (k==1)
+    return (n - k + 1);
+  else
+    return n / k * selection(n-1, k-1);
+}
 ```
 
 * Hanoi tower
 
 ```cpp
-void move(char src, char dest){  cout << src << "->" << dest << endl;}void hanoi(int m, char src, char medium, char dest){  if (m==1)    move(src,dest);  else{    hanoi(m-1, src, dest, medium);    move(src, dest);    hanoi(m-1, medium, src, dest);  }}
+void move(char src, char dest)
+{
+  cout << src << "->" << dest << endl;
+}
+void hanoi(int m, char src, char medium, char dest)
+{
+  if (m==1)
+    move(src,dest);
+  else{
+    hanoi(m-1, src, dest, medium);
+    move(src, dest);
+    hanoi(m-1, medium, src, dest);
+  }
+}
 ```
 
 #### 函数的参数传递：单向传递与双向传递
@@ -187,13 +290,45 @@ void move(char src, char dest){  cout << src << "->" << dest << endl;}void hanoi
 * 引用可以理解为，给变量取一个别名，所以**引用类型在声明时必须要声明是哪个变量的别名**。另外，引用类型的符号&可以跟在类型后，也可以写在变量前，并不影响。
 
 ```cpp
-#include <iostream>using namespace std;{    int a = 3;    int &b = a;  //b就是a的引用，即b是a的一个别名。引用必须初始化，否则编译会报错    b = 10;    cout<< a << endl; //此时a 的值，已由原来的3变成了10.    //因为我们无论对别名做什么操作，其实都是对变量的本身做操作。    return 0;}
+#include <iostream>
+using namespace std;
+{
+    int a = 3;
+    int &b = a;  //b就是a的引用，即b是a的一个别名。引用必须初始化，否则编译会报错
+
+    b = 10;
+    cout<< a << endl; //此时a 的值，已由原来的3变成了10.
+    //因为我们无论对别名做什么操作，其实都是对变量的本身做操作。
+    return 0;
+}
 ```
 
 * 引用类型实现了类似指针的操作，通过函数反过来操作参数。但是引用类型的灵活性肯定是低于指针。定义函数的时候，定义参数类型为引用类型，
 
 ```cpp
-// 这个函数是没效果的void swap(int a, int b){  int temp = a;  a = b;  b = temp;}// 这样就可以了，因为进行了双向传递void swap(int &a, int &b){  int temp = a;  a = b;  b = temp;}// 调用的时候int main(){  int a = 1;  int b = 3;  swap(a, b); // <= 调用的时候并不需要声明引用类型的，因为调用的时候行参实参会结合}
+// 这个函数是没效果的
+void swap(int a, int b)
+{
+  int temp = a;
+  a = b;
+  b = temp;
+}
+
+// 这样就可以了，因为进行了双向传递
+void swap(int &a, int &b)
+{
+  int temp = a;
+  a = b;
+  b = temp;
+}
+
+// 调用的时候
+int main()
+{
+  int a = 1;
+  int b = 3;
+  swap(a, b); // <= 调用的时候并不需要声明引用类型的，因为调用的时候行参实参会结合
+}
 ```
 
 #### 带有可变参数长度的函数\(C++11\)
@@ -213,7 +348,13 @@ constexpr int get_size(){ return 20;}
 * 在定义函数时，预先给参数设置默认值的方式
 
 ```cpp
-int add(int a = 5, int b = 6){  return a + b;}add(10,20) // => 30add(10) // => 16, because a = 10 now
+int add(int a = 5, int b = 6)
+{
+  return a + b;
+}
+
+add(10,20) // => 30
+add(10) // => 16, because a = 10 now
 ```
 
 #### 函数重载
@@ -221,7 +362,15 @@ int add(int a = 5, int b = 6){  return a + b;}add(10,20) // => 30add(10) // => 1
 * 函数重载是多态的一个体现。**比如现在写一个返回绝对值的函数，我们希望他可以处理整数和小数，于是我们就需要写两个函数定义**，但是函数的名字是可以一样的，只是参数表不同
 
 ```cpp
-int abs(int x){  return x<0? -x:x;}double abs(double x){  return x<0? -x:x;}
+int abs(int x)
+{
+  return x<0? -x:x;
+}
+
+double abs(double x)
+{
+  return x<0? -x:x;
+}
 ```
 
 #### C++系统函数
@@ -229,7 +378,18 @@ int abs(int x){  return x<0? -x:x;}double abs(double x){  return x<0? -x:x;}
 * 使用系统函数时要包括相应的头文件，比如数学函数在cmath中
 
 ```cpp
-#include <iostream>#include <cmath>using namespace std;int main(){  double angle;  cin >> angle;  cout << sin(angle) << endl;  return 0;}
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+  double angle;
+  cin >> angle;
+  cout << sin(angle) << endl;
+  return 0;
+}
 ```
 
 ## 第五章 类与对象
@@ -240,7 +400,13 @@ int abs(int x){  return x<0? -x:x;}double abs(double x){  return x<0? -x:x;}
 * 例子：钟表
 
 ```cpp
-class Clock{  public:    void setTime(int hour, int minute, int second);    void getTime();  private: int hour, minute, second;}; // <= 注意这里要分号，因为这是一个声明而不是定义
+class Clock
+{
+  public:
+    void setTime(int hour, int minute, int second);
+    void getTime();
+  private: int hour, minute, second;
+}; // <= 注意这里要分号，因为这是一个声明而不是定义
 ```
 
 * 封装：接口与隐藏细节
@@ -252,7 +418,14 @@ class Clock{  public:    void setTime(int hour, int minute, int second);    void
 * 定义一个类的基本语法
 
 ```cpp
-class name{  public:         公有成员（外部接口）  private:         私有成员  protected:         保护成员};// <= 注意这里要分号，因为这是一个声明而不是定义
+class name{
+  public:
+         公有成员（外部接口）
+  private:
+         私有成员
+  protected:
+         保护成员
+};// <= 注意这里要分号，因为这是一个声明而不是定义
 ```
 
 * 公有成员：与外部接口。
@@ -260,7 +433,8 @@ class name{  public:         公有成员（外部接口）  private:         �
 * 对象定义的语法：
 
 ```cpp
-Clock myClock;myClock.getTime();
+Clock myClock;
+myClock.getTime();
 ```
 
 * 类的成员函数定义两种方式：
@@ -268,7 +442,34 @@ Clock myClock;myClock.getTime();
   * **也可以在类内只声明，在类外来定义函数体**。类外定义时需要在函数名前注明类的名字（ **:: 在这里称为作用域限定符**）：
 
 ```cpp
-class Clock{  public:    void setTime(int newH=0, int newM=0, int newS=0);    void getTime();  private: int hour, minute, second;};// <= 注意这里要分号，因为这是一个声明而不是定义// 注意这里定义成员函数的语法void Clock::setTime(int newH, int newM, int newS){  hour = hour;  minute = newM;  second = newS;}void Clock::getTime(){  cout << hour << ":" << minumte << ":" << second << endl;}int main(){  Clock myClock;  myClock.setTime(8,30,30);  myClock.getTime();  return 0;}
+class Clock
+{
+  public:
+    void setTime(int newH=0, int newM=0, int newS=0);
+    void getTime();
+  private: int hour, minute, second;
+};// <= 注意这里要分号，因为这是一个声明而不是定义
+
+// 注意这里定义成员函数的语法
+void Clock::setTime(int newH, int newM, int newS)
+{
+  hour = hour;
+  minute = newM;
+  second = newS;
+}
+
+void Clock::getTime()
+{
+  cout << hour << ":" << minumte << ":" << second << endl;
+}
+
+int main()
+{
+  Clock myClock;
+  myClock.setTime(8,30,30);
+  myClock.getTime();
+  return 0;
+}
 ```
 
 #### 构造函数
@@ -277,7 +478,30 @@ class Clock{  public:    void setTime(int newH=0, int newM=0, int newS=0);    vo
 * **允许不定义构造函数**; 没有定义构造函数的时候，编译器会自动给出一个默认的构造函数
 
 ```cpp
-class Clock{  public:    // 构造函数，没有返回值类型    Clock(int newH, int newM, int newS);    Clock();  // 提供一个默认构造函数，可以不给参数    void setTime(int newH=0, int newM=0, int newS=0);    void getTime();  private: int hour, minute, second;};// <= 注意这里要分号，因为这是一个声明而不是定义Clock::Clock(int newH, int newM, int newS):  hour(newH), minute(newM), second(newW){}Clock::Clock(): hour(0), minute(0), second(0){}int main(){  Clock c1 = (8,30,0);  Clock c2;  // <- 此处调用无参数的构造函数  ...}
+class Clock
+{
+  public:
+    // 构造函数，没有返回值类型
+    Clock(int newH, int newM, int newS);
+    Clock();  // 提供一个默认构造函数，可以不给参数
+    void setTime(int newH=0, int newM=0, int newS=0);
+    void getTime();
+  private: int hour, minute, second;
+};// <= 注意这里要分号，因为这是一个声明而不是定义
+
+Clock::Clock(int newH, int newM, int newS):
+  hour(newH), minute(newM), second(newW){
+}
+
+Clock::Clock(): hour(0), minute(0), second(0){
+}
+
+int main()
+{
+  Clock c1 = (8,30,0);
+  Clock c2;  // <- 此处调用无参数的构造函数
+  ...
+}
 ```
 
 * 构造函数**初始化列表的方法**（看上面的例子）
@@ -287,14 +511,30 @@ class Clock{  public:    // 构造函数，没有返回值类型    Clock(int ne
 * 用一个对象复制一个新的对象时用到的构造函数
 
 ```cpp
-class Book{  public:    Book(int p);    Book(const Book &b); // <= 复制构造函数  private:    int price;}Book::Book(const Book &b){}
+class Book
+{
+  public:
+    Book(int p);
+    Book(const Book &b); // <= 复制构造函数
+  private:
+    int price;
+}
+Book::Book(const Book &b)
+{}
 ```
 
 * 这里的**const是希望保护原来的对象**，因为引用对象是存在修改原来对象的可能性的
 * 为什么需要复制构造函数呢？因为复制一个对象时，可能需要按照一些规则，修改对象的一部分属性，这样的时候，就需要特定的复制构造函数
 
 ```cpp
-class Point{  public:    Point(int xx=0, int yy =0){ x = xx; y = yy;}    Point(const Point& p) = delete; // <= C++11的新关键字delete  private:    int x,y;}
+class Point
+{
+  public:
+    Point(int xx=0, int yy =0){ x = xx; y = yy;}
+    Point(const Point& p) = delete; // <= C++11的新关键字delete
+  private:
+    int x,y;
+}
 ```
 
 * 默认构造函数的无效化，使用C++11的新关键字delete
@@ -304,7 +544,17 @@ class Point{  public:    Point(int xx=0, int yy =0){ x = xx; y = yy;}    Point(c
 * 对象生命周期结束时调用的函数，用来做对象消灭后的善后工作。**析构函数用波浪符号开始，不能有返回值，也不能有参数列表**
 
 ```cpp
-class Point{  public:    Point(int xx=0, int yy =0){ x = xx; y = yy;}    ~Point(); // <= 析构函数不可以有参数  private:    int x,y;}Point::~Point(){}
+class Point
+{
+  public:
+    Point(int xx=0, int yy =0){ x = xx; y = yy;}
+    ~Point(); // <= 析构函数不可以有参数
+  private:
+    int x,y;
+}
+
+Point::~Point(){
+}
 ```
 
 #### 类的组合
@@ -312,7 +562,19 @@ class Point{  public:    Point(int xx=0, int yy =0){ x = xx; y = yy;}    ~Point(
 #### 前向引用声明
 
 ```cpp
-class B; // 前向引用声明class A{  public:  void f(B b);};class B{  public:  void g(A a);};
+class B; // 前向引用声明
+
+class A
+{
+  public:
+  void f(B b);
+};
+
+class B
+{
+  public:
+  void g(A a);
+};
 ```
 
 #### UML简介
@@ -328,7 +590,16 @@ class B; // 前向引用声明class A{  public:  void f(B b);};class B{  public:
 * C++中的struct也可以定义函数成员，C中是不可以的
 
 ```cpp
-struct Student{  int num;  string name;  char sex;  int age;};Student stu = {98001, "Lin Lin", 'F', 19};cout << stu.name << endl;
+struct Student
+{
+  int num;
+  string name;
+  char sex;
+  int age;
+};
+
+Student stu = {98001, "Lin Lin", 'F', 19};
+cout << stu.name << endl;
 ```
 
 #### 联合体union
@@ -336,7 +607,13 @@ struct Student{  int num;  string name;  char sex;  int age;};Student stu = {980
 * 联合体的定义也和struct很相似，不同之处是联合体的所有成员都共用一个内存，不能同时存在
 
 ```cpp
-union Mark{  // 以下三个成员只能存在一个  char grade;  bool pass;  int percent;};
+union Mark
+{
+  // 以下三个成员只能存在一个
+  char grade;
+  bool pass;
+  int percent;
+};
 ```
 
 
