@@ -145,4 +145,35 @@ for (let char of str){
 
 #### Frequency Counter
 
-* 
+* Use an object to track the frequency of a bunch of values
+* Challenge: write a function called same, which accept two arrays, return true if every value in the first array has it corresponding squared value in the second array
+
+```javascript
+same([1,2,3], [4,1,9]) -> true
+same([1,1,2], [4,1,1]) -> true
+```
+
+* The "naive" solution : nested loop, cause O\(n^2\); just loop through the two arrays
+
+```javascript
+// 1. Loop through the first array, grab an element at one time
+// 2. Find that element (squared) in the second array
+// 3. If not found, return false
+// 4. If found, delete that element from the second array
+```
+
+* Used function : **arr.indexof\(\), arr.splice\(\)**
+* A better solution \(O\(n\)\):
+
+```javascript
+// 1. Create 2 frequency counter (object) for both array
+// 2. Loop through the key-value pair of the counter, see if they are same
+```
+
+* Coding challenge : Anagram words
+
+```javascript
+validAnagram('Hello','eHllo') - True
+validAnagram('what','wsat') -> False
+```
+
