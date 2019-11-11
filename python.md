@@ -346,7 +346,7 @@ def test1():
     start = time.time()    
     for i in range(1000):        
         l = [i for i in range(1000)]    
-        return (time.time()-start)
+    return (time.time()-start)
 print(test1())    # => 0.026647329330444336
 ```
 

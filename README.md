@@ -39,10 +39,10 @@
 另外，现在感觉到建立1-2个有深度的side project必须要同时进行。
 
 1. Monday : **学堂在线**
-2. Tuesday: **Python Data Structure**
-3. Wednesday: **CS15-122**（白天可以看一些资料），**MIT Python视频**
-4. Thursday: **CS15-122**（白天可以看一些资料），**MIT Python视频**
-5. Friday: **Python Data Structure**
+2. Tuesday: **Python Data Structure，MIT 线性代数**
+3. Wednesday: **CS15-122**（白天可以看一些资料），**Udemy算法视频**
+4. Thursday: **CS15-122**（白天可以看一些资料），**Udemy算法视频**
+5. Friday: **Python Data Structure，MIT线性代数**
 6. Sat/Sun: 优先级：追赶一周中落下的内容&gt;Python Crash Course Project&gt;Qt C++&gt;Udemy **Javascript算法入门**&gt;15-112 Python 练习&gt;CSE351&gt;
 7. Sat/Sun: 额外任务：研究就业市场，关键要弄清，自己向往的职位有多少机会，需要什么技能树？
 
