@@ -1,8 +1,8 @@
 # Table of contents
 
 * [Content](README.md)
-* [C/C++](c-c++.md)
-* [Java](java.md)
+* [K&R C Language](c-c++.md)
+* [第一行代码Java](java.md)
 * [Python Data Structure](python.md)
 * [UCB CS61A](cmu-cs-15-112.md)
 * [CMU CS 15-121](cmu-cs-15-121.md)

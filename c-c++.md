@@ -1,4 +1,4 @@
-# C/C++
+# K&R C Language
 
 ### 背景和历史
 
