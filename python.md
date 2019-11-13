@@ -316,8 +316,10 @@ Sum is 5000000050000000 required 0.00000119 seconds
 ```python
 import time
 start = time.time()
-l = []for i in range(10000):    
-    l.append(i)print(time.time() - start) # time返回的结果单位是second
+l = []
+for i in range(10000):    
+    l.append(i)
+print(time.time() - start) # time返回的结果单位是second
 ```
 
 * 使用timeit模块里的Timer类
@@ -358,4 +360,20 @@ print(test1())    # => 0.026647329330444336
 ```
 
 * 结论：至少就简单的实验来说，两者的差别非常小，timeit\(\)的结果可能更加均一，time\(\)会有一点波动，仅此而已
+
+### Ch4. Basic data structures
+
+这一章将主要介绍线性数据结构，包括stack, queue, deque, linked list。学习目标是要学会用Python自己建立这些简单数据结构，并对他们的性能特点作出实验判断。所谓线性数据结构，往往是一个有序的序列，序列有两个端。
+
+#### Stack 堆栈
+
+* 堆栈的特点是，**向堆栈添加或者减去数据的操作，都发生在堆栈的同一端（顶端top）**，而处于最下方不被碰到的端叫做base。堆栈的操作原则叫做LIFO \(last in first out\)
+
+![](.gitbook/assets/deepinscreenshot_select-area_20191112214258.png)
+
+* 堆栈的特性使得反转一个列表很容易，因为最后加进去的在最上面，在base的则是最先加进去的元素
+* 比如说，想象你在浏览器不断按倒退键的时候，就是类似在取用堆栈最上面元素的例子
+* Stack堆栈需要支持以下这些基本的操作:
+
+![](.gitbook/assets/deepinscreenshot_select-area_20191112214929.png)
 
