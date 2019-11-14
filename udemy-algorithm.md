@@ -139,7 +139,7 @@ for (let char of str){
 
 **再次强调理解问题很重要，必须要和面试官沟通好确认对问题的理解，并且用一些concrete example来确认理解**
 
-### Section 5 : Problem solving pattern
+## Section 5 : Problem solving pattern
 
 面试中有存在一些常见的问题形式，这一节就具体来探索这些常见pattern的解法
 
