@@ -5,7 +5,6 @@
 * [学堂在线C++ 初级](xue-tang-zai-xian-c++-chu-ji.md)
 * [Princeton Java](princeton-java.md)
 * [第一行代码Java](java.md)
-* [NTU Java Tutorial](ntu-java-tutorial.md)
 * [MIT 6.001x](mit-python.md)
 * [Python Data Structure](python.md)
 * [Python GUI programming](python-gui-programming.md)
@@ -21,4 +20,5 @@
 * [CHIP-8 Emulator](chip-8-emulator.md)
 * [剑指Offer笔记](jian-zhi-offer-bi-ji.md)
 * [Frequency counter](frequency-counter.md)
+* [NTU Java Tutorial](ntu-java-tutorial.md)
 
