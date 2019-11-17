@@ -177,3 +177,23 @@ validAnagram('Hello','eHllo') - True
 validAnagram('what','wsat') -> False
 ```
 
+#### Multiple pointer pattern
+
+* Creating **multiple pointers that points to a position in a list,** work toward the end, the beginning or the middle
+
+![](.gitbook/assets/multiple_pointer_example.png)
+
+* Naive solution: 逐个遍历每个元素，对每个元素再逐个遍历剩下的所有元素，O\(n^2\)
+* 更好的solution：利用List已经排序的特性，建立左右两个pointer向中心方向靠拢，如果和大于0，移动右边的指针，如果小于0则移动左边指针，直到找到配对，或者当left = right，则返回，O\(n\)
+
+#### Sliding window
+
+* 利用一个滑动窗口来跟踪一个数列中的子列的某个特征
+
+![](.gitbook/assets/sliding_window_example.png)
+
+#### Divide and conquer
+
+* 以binary search为例，这里只是做一个介绍，因为D&C会贯穿整个课程
+* D&C往往可以大大减少解法的步数，到O\(logn\)或者O\(nlogn\)
+
