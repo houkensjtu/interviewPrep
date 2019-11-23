@@ -18,12 +18,13 @@ for(let i = 0; i < arr.length; i++){
   arr[i] = ...
 }
 
-// 直接取出了每个元素，这个操作对object是不能用的
+// 更好的数组遍历
+// of用于取出iterable的每个元素，比如数组和字符串
 for(let ele of arr){
   ele = ...
 }
 
-// 循环遍历所有的index，或者是key；对数组和object均可以用
+// in用于取出object的key，或者是数组的下标index
 for(let i in arr){
   arr1[i] = ... // 这里i将等于1，2，3，4...
 }
