@@ -379,5 +379,26 @@ print(test1())    # => 0.026647329330444336
 
 Stack的实现就是利用Python已有的list，由于已经有append和pop这两个方法，所以实现基本就是把list包装一下而已。**这里很重要的一个考察是，由于我们建立了抽象，所以可以更改内部pop和push的实现方法，而在stack外面看不出任何区别**。
 
+```python
+class Stack:
+     def __init__(self):
+         self.items = []
+
+     def isEmpty(self):
+         return self.items == []
+
+     def push(self, item):
+         self.items.append(item)
+
+     def pop(self):
+         return self.items.pop()
+
+     def peek(self):
+         return self.items[len(self.items)-1]
+
+     def size(self):
+         return len(self.items)
+```
+
 * 例题：括号检查器。目标是写一个函数，检查一个只包括括号的字符串，判断其是否balance。我最初想到的是观察括号字符是不是对称，但是其实这并没有覆盖到像 \)\)\)\(\(\( 这样的情况。**书中的解法是利用stack**，从左到右遍历，如果是左括号，就推入stack，如果是右括号就pop。在遍历结束后stack为空即为True，在结束之前pop空就是False
 
