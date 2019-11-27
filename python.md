@@ -401,4 +401,50 @@ class Stack:
 ```
 
 * 例题：括号检查器。目标是写一个函数，检查一个只包括括号的字符串，判断其是否balance。我最初想到的是观察括号字符是不是对称，但是其实这并没有覆盖到像 \)\)\)\(\(\( 这样的情况。**书中的解法是利用stack**，从左到右遍历，如果是左括号，就推入stack，如果是右括号就pop。在遍历结束后stack为空即为True，在结束之前pop空就是False
+* 另外，作为推广形式，这个例子还可以拓展到不同括号类型混合的串，不同的只是除了检查配对以外还要检查类型。如果类型不符合则可以直接返回False
+
+```python
+def parcheck(p):
+    s = Stack()
+    b = True
+    i = 0
+    while i < len(p) and b:
+        if p[i] in "{[(":
+            s.push(p[i])
+        else:
+            if s.isEmpty() or not match(s.peek(), p[i]):
+                b = False
+            else:
+                s.pop()
+        i = i + 1
+    if s.isEmpty() and b:
+        return True
+    else:
+        return False
+
+def match(open, close):
+    return "{[(".index(open) == "}])".index(close)
+
+if __name__ == "__main__":
+    print(parcheck("()()()[][{}]"))
+    print(parcheck("{}([[[{}]]])"))
+    print(parcheck("{}([[[{}])]])"))
+
+```
+
+* 接下来一个例子是转换10进制与2进制。从10到2的转换就是不断除以2取余数，除以2以后原来的数字要向下取整。然后把余数不管是0还是1一个一个推上stack，最后一个一个pop出来就是：
+
+```python
+def d2b(n):
+    b = Stack()
+    while n > 0:
+        digit = n % 8
+        n = n // 8
+        b.push(digit)
+
+    s = ""
+    while not b.isEmpty():
+        s += str(b.pop())
+    return s
+```
 
