@@ -69,8 +69,11 @@ vectorA * vectorB # => 0
 * range\(\)是一个常用的生成list的工具，range生成的数列包括头而不包括尾
 
 ```python
->>> list(range(0,5))[0,1,2,3,4]
->>> list(range(5,10,2))[5,7,9]
+>>> list(range(0,5))
+[0,1,2,3,4]
+
+>>> list(range(5,10,2))
+[5,7,9]
 ```
 
 * String就是字符的list，很多操作方法都和list类似
@@ -80,7 +83,8 @@ vectorA * vectorB # => 0
 
 ```python
 >>> phonenumb = {'david' : 1410, 'sarah' : 1137}
->>> phonenumb.keys()dict_keys(['david','sarah'])
+>>> phonenumb.keys()
+dict_keys(['david','sarah'])
 ```
 
 * I/O : print\(\)和input\(\)这两个基本函数。另外print存在格式输出的方法
