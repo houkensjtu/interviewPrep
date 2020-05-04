@@ -1,6 +1,7 @@
 # Table of contents
 
-* [Content](README.md)
+* [Content 1.0](README.md)
+* [Content 2.0](content-2.0.md)
 * [K&R C Language](c-c++.md)
 * [学堂在线C++ 初级](xue-tang-zai-xian-c++-chu-ji.md)
 * [Princeton Java](princeton-java.md)
