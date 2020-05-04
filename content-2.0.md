@@ -8,6 +8,15 @@
 
 本书在Github托管，在[Gitbook](https://personal-notes.gitbook.io/interviewprep/)上观看效果更好。
 
+#### 一周学习安排
+
+1. Monday : **Htdp/SICP**
+2. Tuesday: **MIT 线性代数**
+3. Wednesday: **Coursera人工智能**
+4. Thursday: **MIT线性代数**
+5. Friday: **Htdp/SICP**
+6. Sat/Sun: **写SOP草稿；联系套磁教授；研究学校学院；HTML/CSS学习**
+
 #### 关于学习内容
 
 由于现在学习的重心从程序员面试转向了人工智能领域，那么学习的内容也需要做相应的调整。算法和数据结构不再是最主要的核心内容，CSAPP这样的计算机专业基础课也不得不退出第一线的选择。下面先罗列一下需要和想要深入学习的领域：
@@ -17,8 +26,6 @@
 * 编程内功（抽象方法）
 * HTML/CSS/Javascript
 * 一些简单的算法与数据结构
-
-
 
 #### 关于学习方法
 
