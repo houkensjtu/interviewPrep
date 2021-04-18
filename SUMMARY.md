@@ -23,3 +23,7 @@
 * [剑指Offer笔记](jian-zhi-offer-bi-ji.md)
 * [Frequency counter](frequency-counter.md)
 
+## Test group
+
+* [New group article](test-group/new-group-article.md)
+
