@@ -25,5 +25,6 @@
 
 ## Test group
 
+* [New math article](test-group/new-math-article.md)
 * [New group article](test-group/new-group-article.md)
 

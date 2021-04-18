@@ -60,9 +60,7 @@ let names = ["michael", "Julia", "mark"];
 
 #### Step 1: Understand the problem 初步理解问题
 
-* * Can you re-phrase the problem in your own words?
-  * What's the input and output of the problem?
-  * How can I label the important data related in this problem?
+* 
 * Example : write a addition function.
 * * Ask yourself: what's the input ? Integer? Floats? How large?
 

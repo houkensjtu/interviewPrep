@@ -357,10 +357,7 @@ def sqrt(x, eps):
 
 * Bugs : isolate the bug, eradicate the bug, retest
 * Type of bugs : 
-* * overt bug : cause code to crash or infinite loop
-  * covert bug: runs normally, but return wrong value
-  * persistent bug : occurs every time
-  * intermittent : only occurs occasionally 
+* 
 * Debugging : steep learning curve, use print function, use bisection method, test your function before finishing the whole program
 * Remember to **backup your code before you modify**
 
